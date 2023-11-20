@@ -1,0 +1,3 @@
+G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug-mingw/CMakeFiles/edit_cache.dir
+G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug-mingw/CMakeFiles/Hospitals.dir
+G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug-mingw/CMakeFiles/rebuild_cache.dir
