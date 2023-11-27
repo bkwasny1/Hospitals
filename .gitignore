@@ -13,3 +13,8 @@ cmake-build-debug-mingw/.ninja_log
 cmake-build-debug-mingw/CMakeFiles/Hospitals.dir/scr/tabu.cpp.obj
 cmake-build-debug-mingw/Hospitals.exe
 cmake-build-debug-mingw/Testing/Temporary/LastTest.log
+*.log
+*.exe
+*.obj
+cmake-build-debug-mingw/.ninja_log
+cmake-build-debug-mingw/.ninja_deps

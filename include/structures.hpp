@@ -2,11 +2,24 @@
 #define HOSPITALS_STRUCTURES_HPP
 #include <vector>
 #include <iostream>
+#include <map>
+#include <utility>
 
 //rowne ilosci specjalizacji
 #define INJURED_NUMBER 14
 
+//do okreslenia jeszcze co do liczby   length jako ROWS
+#define CITY_LENGTH 25
+#define CITY_HEIGTH 50
+
+
 //definicja struktur
+
+struct Point {
+    int x, y, distance;
+};
+
+
 class Patient{
 public:
 //injuries jako lista liczb, jesli dana specjalizacja jest potrzebna to wpisujemy jej wymagany poziom,
@@ -18,6 +31,7 @@ public:
             injuries_[i] = injuries[i];
         }
     }
+
 //zwraca priorytet
     int get_priority(){return priority_;}
 
@@ -81,7 +95,20 @@ private:
     int patient_count = 0;
 };
 
+//zamiana z macierzy na klase reprezentujaca kazdy jeden szpital
 
+class Hospital {
+public:
+    Hospital(int x, int y, std::vector<std::string> specialization, std::vector<int> value) : x_(x), y_(y) {
+        for (int i = 0; i < specialization.size(); i++){
+            specialization_.insert(std::make_pair(specialization[i], value[i]));
+        }
+    };
 
+private:
+    int x_;
+    int y_;
+    std::map<std::string, int> specialization_;
+};
 
 #endif //HOSPITALS_STRUCTURES_HPP
