@@ -1,0 +1,15 @@
+
+cmake-build-debug-mingw/Testing/Temporary/LastTest.log
+*.log
+cmake-build-debug-mingw/.ninja_log
+cmake-build-debug-mingw/.ninja_log
+cmake-build-debug-mingw/CMakeFiles/Hospitals.dir/main.cpp.obj
+*.log
+cmake-build-debug-mingw/CMakeFiles/Hospitals.dir/scr/window.cpp.obj
+cmake-build-debug-mingw/CMakeFiles/Hospitals.dir/scr/structures.cpp.obj
+cmake-build-debug-mingw/.ninja_deps
+cmake-build-debug-mingw/.ninja_log
+*.obj
+cmake-build-debug-mingw/CMakeFiles/Hospitals.dir/scr/tabu.cpp.obj
+cmake-build-debug-mingw/Hospitals.exe
+cmake-build-debug-mingw/Testing/Temporary/LastTest.log
