@@ -12,6 +12,7 @@
 #define CITY_LENGTH 25
 #define CITY_HEIGTH 50
 
+#define AMBULANCE_NUMBER 5
 
 //definicja struktur
 

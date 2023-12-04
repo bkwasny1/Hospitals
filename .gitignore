@@ -18,3 +18,13 @@ cmake-build-debug-mingw/Testing/Temporary/LastTest.log
 *.obj
 cmake-build-debug-mingw/.ninja_log
 cmake-build-debug-mingw/.ninja_deps
+cmake-build-debug-mingw/.ninja_deps
+cmake-build-debug-mingw/.ninja_deps
+cmake-build-debug-mingw/.ninja_log
+cmake-build-debug-mingw/CMakeFiles/Hospitals.dir/scr/tabu.cpp.obj
+*.exe
+*.log
+*.obj
+*.obj
+cmake-build-debug-mingw/.ninja_log
+cmake-build-debug-mingw/.ninja_deps
