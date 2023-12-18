@@ -50,6 +50,7 @@ public:
     };
 
     bool doesSuppurt(Spec specialization, int needed_spec_value);
+    const Point get_location() const {return hospital_coordination_;}
 
 private:
     Point hospital_coordination_;
@@ -63,10 +64,12 @@ public:
 //jesli nie to 0,lista o stalym rozmiarze, x, y to wspolrzedne macierzy miasta
 //time to czas obsługi wypadku i na sorze
 
-    Patient(int x, int y, int time, const int injuries[INJURED_NUMBER], int priority) : x_(x), y_(y), time_(time), priority_(priority){
+    Patient(int x, int y, int time, const int injuries[INJURED_NUMBER], int priority) : time_(time), priority_(priority){
         for (int i = 0; i < INJURED_NUMBER; i++){
             injuries_[i] = injuries[i];
         }
+        patient_coordination_.x = x;
+        patient_coordination_.y = y;
         select_hospital();
     }
 
@@ -86,17 +89,19 @@ public:
     int get_time(){return time_;}
 
 //zwraca wspolrzedne
-    int* get_location();
+    Point get_location();
 
 //wybiera najblizszy szpital bedacy w stanie obsluzyc pacjenta
     void select_hospital();
 
-//zwraca szpital
-    const Hospital* get_hospital() const {return selected_hospital_;};
+//zwraca koszt dojazdu do szpitala
+    int get_road_cost_patient_hospital();
 
+//zwraca lokalizacje wybranego szpitala
+    const Point selected_hospital_location() const {selected_hospital_->get_location();}
+    
 private:
-    int x_;
-    int y_;
+    Point patient_coordination_;
     int injuries_[INJURED_NUMBER]{};
     int time_;
     int priority_;
@@ -105,7 +110,10 @@ private:
 
 class Ambulance{
 public:
-    Ambulance(int actual_hospital): actual_hospital_(actual_hospital){}
+    Ambulance(int actual_hospital, int x, int y): actual_hospital_(actual_hospital){
+        ambulance_coordination_.x = x;
+        ambulance_coordination_.y = y;
+    }
 
     int number_of_patients() {return patient_count;}
 //dodaje pacjenta do karetki
@@ -128,7 +136,7 @@ public:
     int get_patient_time(int patient_n);
 
 //zwraca wspolrzedne pacjenta
-    int* get_patient_location(int patient_n);
+    Point get_patient_location(int patient_n);
 
 //zwraca wybrany szpital
     const Hospital* get_selected_hospital(int patient_n) const;
@@ -141,8 +149,8 @@ private:
     //jeszcze nie wiem czy int, zalezy od tego jak beda reprezentowane szpitale
     int actual_hospital_;
     std::vector<Patient*> order_;
-    //przedstawia liczbe zakolejkowanych pacjentow
-    int patient_count = 0;
+    int patient_count = 0; //przedstawia liczbe zakolejkowanych pacjentow
+    Point ambulance_coordination_; // poczatkowe polozenie karetki
 };
 
 

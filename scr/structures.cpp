@@ -96,10 +96,18 @@ std::vector<int> Patient::get_spec_idx(){
     return priority;
 }
 
-int* Patient::get_location(){
-    int loc[2] = {x_, y_};
-    int * loc_return = loc;
-    return loc_return;
+Point Patient::get_location(){
+    return patient_coordination_;
+}
+
+
+int Patient::get_road_cost_patient_hospital(){
+    return get_road_cost(city, patient_coordination_, selected_hospital_->get_location());
+}
+
+
+void Patient::select_hospital(){
+    std::cout << "TODO: do implementacji" << std::endl;
 }
 
 
@@ -137,28 +145,43 @@ int Ambulance::get_patient_time(int patient_n){
 };
 
 //zwraca wspolrzedne pacjenta
-int* Ambulance::get_patient_location(int patient_n){
+Point Ambulance::get_patient_location(int patient_n){
     return order_[patient_n] -> get_location();
 };
 
-const Hospital* Ambulance::get_selected_hospital(int patient_n) const{
-    return order_[patient_n] -> get_hospital();
-}
-
+//zwraca laczny koszt karetki
 int Ambulance::get_ambulance_cost(){
-    for()
+
+    Point actual_point = ambulance_coordination_;
+    int road_cost;
+    int patient_cost;
+    int total_cost = 0;
+
+    //oblicz koszt poszczegolnych pacjentow
+    for(int current_patient = 0; current_patient <= patient_count; current_patient++ ){
+        
+        //policz koszt drogi karetki do pacjenta, pacjenta do szpitala.
+        //następnie zaktualizuj pozycje karetki
+        road_cost = get_road_cost(city, actual_point, order_[current_patient]->get_location());
+        road_cost += order_[current_patient]->get_road_cost_patient_hospital();
+        actual_point = order_[current_patient]->selected_hospital_location();
+
+        total_cost += road_cost;
+        total_cost += order_[current_patient]->get_time();
+    }
+    return total_cost;
 }
 
 //Funkcje
 
-bool isValid(int x, int y, std::vector<std::vector<int>>& grid, std::vector<std::vector<bool>>& visited) {
+bool isValid(int x, int y, std::vector<std::vector<int>> grid, std::vector<std::vector<bool>>& visited) {
     return (x >= 0 && x < CITY_LENGTH && y >= 0 && y < CITY_HEIGTH && grid[x][y] && !visited[x][y]);
 }
 
 
 //Funkcja do znajdowania najkrotszej drogi miedzy punktami w miescie, miasto jako
 //pionowe i poziome drogi (tam jakas wartosc np 1) miejsca nieosiagalne jako 0
-int BFS(std::vector<std::vector<int>>& grid, const Point& start, const Point& end) {
+int BFS(std::vector<std::vector<int>> grid, const Point& start, const Point& end) {
     std::vector<std::vector<bool>> visited(CITY_LENGTH, std::vector<bool>(CITY_HEIGTH, false));
     std::queue<Point> q;
 
@@ -193,6 +216,19 @@ int BFS(std::vector<std::vector<int>>& grid, const Point& start, const Point& en
 }
 
 
+//liczy koszt przejazdu na podstawie siatki znalezionej przy użyciu BFS
+int get_road_cost(std::vector<std::vector<int>> grid, const Point& start, const Point& end, int step_time = 1){
+    int number_of_steps = BFS(grid, start, end);
+    if (number_of_steps < 0){
+        return -1;
+    }
+    else{
+        return number_of_steps * step_time;
+    }
+}
+
+
+//HOSPITAL
 bool Hospital::doesSuppurt(Spec specialization, int needed_spec_value){
     if(specialization_[specialization] == needed_spec_value){
         return true;
