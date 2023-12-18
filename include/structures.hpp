@@ -21,6 +21,42 @@ struct Point {
 };
 
 
+enum class Spec{
+    Ortopedia,
+    Okulistyka,
+    Neurologia,
+    Chirurgia,
+    Kardiologia,
+    Pediatria,
+    Endokrynologia,
+    Geriatria,
+    Ginekologia,
+    Urologia,
+    Psychiatria,
+    Oparzenia,
+    Gastroenterologia
+};
+
+
+//zamiana z macierzy na klase reprezentujaca kazdy jeden szpital
+class Hospital {
+public:
+    Hospital(int x, int y, std::vector<Spec> specialization, std::vector<int> spec_value)  {
+        for (int i = 0; i < specialization.size(); i++){
+            specialization_.insert(std::make_pair(specialization[i], spec_value[i]));
+        }
+        hospital_coordination_.x = x;
+        hospital_coordination_.y = y;
+    };
+
+    bool doesSuppurt(Spec specialization, int needed_spec_value);
+
+private:
+    Point hospital_coordination_;
+    std::map<Spec, int> specialization_;
+};
+
+
 class Patient{
 public:
 //injuries jako lista liczb, jesli dana specjalizacja jest potrzebna to wpisujemy jej wymagany poziom,
@@ -31,6 +67,7 @@ public:
         for (int i = 0; i < INJURED_NUMBER; i++){
             injuries_[i] = injuries[i];
         }
+        select_hospital();
     }
 
 //zwraca priorytet
@@ -51,6 +88,11 @@ public:
 //zwraca wspolrzedne
     int* get_location();
 
+//wybiera najblizszy szpital bedacy w stanie obsluzyc pacjenta
+    void select_hospital();
+
+//zwraca szpital
+    const Hospital* get_hospital() const {return selected_hospital_;};
 
 private:
     int x_;
@@ -58,6 +100,7 @@ private:
     int injuries_[INJURED_NUMBER]{};
     int time_;
     int priority_;
+    Hospital* selected_hospital_;
 };
 
 class Ambulance{
@@ -87,6 +130,12 @@ public:
 //zwraca wspolrzedne pacjenta
     int* get_patient_location(int patient_n);
 
+//zwraca wybrany szpital
+    const Hospital* get_selected_hospital(int patient_n) const;
+
+//zwraca laczny koszt karetki
+    int get_ambulance_cost();
+
 
 private:
     //jeszcze nie wiem czy int, zalezy od tego jak beda reprezentowane szpitale
@@ -96,20 +145,5 @@ private:
     int patient_count = 0;
 };
 
-//zamiana z macierzy na klase reprezentujaca kazdy jeden szpital
-
-class Hospital {
-public:
-    Hospital(int x, int y, std::vector<std::string> specialization, std::vector<int> value) : x_(x), y_(y) {
-        for (int i = 0; i < specialization.size(); i++){
-            specialization_.insert(std::make_pair(specialization[i], value[i]));
-        }
-    };
-
-private:
-    int x_;
-    int y_;
-    std::map<std::string, int> specialization_;
-};
 
 #endif //HOSPITALS_STRUCTURES_HPP

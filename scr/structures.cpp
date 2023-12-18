@@ -7,6 +7,7 @@
 
 int Hospitals_spec = 0;
 
+
 std::vector<std::vector<int>> city = {
         {1, 2, 2, 1, 1 ,1, 1, 0, 0, 0 ,0, 0, 0, 0, 0 ,0, 0, 0, 0, 0 ,0, 0, 0, 0, 0 ,0, 0, 0, 0, 0 ,0, 0, 0, 0, 0 ,0, 0, 0, 0, 0 ,0, 0, 0, 0, 0 ,1, 2, 3, 4, 5},
         {0, 2, 2, 1, 1 ,0, 0, 0, 1, 0 ,0, 0, 0, 0, 0 ,0, 0, 0, 0, 0 ,0, 0, 0, 0, 0 ,0, 0, 1, 0, 0 ,0, 0, 0, 0, 0 ,0, 0, 0, 0, 0 ,0, 0, 0, 0, 0 ,0, 0, 0, 0, 0},
@@ -60,21 +61,7 @@ std::string specializations[INJURED_NUMBER] = {
         "Oparzenia",
         "Gastroenterologia"};
 
-enum class Spec{
-    Ortopedia,
-    Okulistyka,
-    Neurologia,
-    Chirurgia,
-    Kardiologia,
-    Pediatria,
-    Endokrynologia,
-    Geriatria,
-    Ginekologia,
-    Urologia,
-    Psychiatria,
-    Oparzenia,
-    Gastroenterologia
-};
+
 
 
 //PATIENT
@@ -154,7 +141,13 @@ int* Ambulance::get_patient_location(int patient_n){
     return order_[patient_n] -> get_location();
 };
 
+const Hospital* Ambulance::get_selected_hospital(int patient_n) const{
+    return order_[patient_n] -> get_hospital();
+}
 
+int Ambulance::get_ambulance_cost(){
+    for()
+}
 
 //Funkcje
 
@@ -197,4 +190,12 @@ int BFS(std::vector<std::vector<int>>& grid, const Point& start, const Point& en
 
     std::cout << "Nie znaleziono ścieżki!" << std::endl;
     return -1; // Brak ścieżki
+}
+
+
+bool Hospital::doesSuppurt(Spec specialization, int needed_spec_value){
+    if(specialization_[specialization] == needed_spec_value){
+        return true;
+    }
+    return false;
 }
