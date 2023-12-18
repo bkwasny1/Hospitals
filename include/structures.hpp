@@ -21,7 +21,7 @@ struct Point {
 };
 
 
-enum class Spec{
+enum Spec{
     Ortopedia,
     Okulistyka,
     Neurologia,
@@ -98,8 +98,8 @@ public:
     int get_road_cost_patient_hospital();
 
 //zwraca lokalizacje wybranego szpitala
-    const Point selected_hospital_location() const {selected_hospital_->get_location();}
-    
+    const Point selected_hospital_location() const { return selected_hospital_->get_location();}
+
 private:
     Point patient_coordination_;
     int injuries_[INJURED_NUMBER]{};
@@ -152,6 +152,19 @@ private:
     int patient_count = 0; //przedstawia liczbe zakolejkowanych pacjentow
     Point ambulance_coordination_; // poczatkowe polozenie karetki
 };
+
+
+//FUNCTIONS
+
+extern std::vector<std::vector<int>> city;
+
+//Funkcja do znajdowania najkrotszej drogi miedzy punktami w miescie, miasto jako
+//pionowe i poziome drogi (tam jakas wartosc np 1) miejsca nieosiagalne jako 0
+int BFS(const Point start, const Point end, std::vector<std::vector<int>> grid = city);
+
+
+//liczy koszt przejazdu na podstawie siatki znalezionej przy użyciu BFS
+int get_road_cost( const Point& start, const Point& end, int step_time = 1);
 
 
 #endif //HOSPITALS_STRUCTURES_HPP

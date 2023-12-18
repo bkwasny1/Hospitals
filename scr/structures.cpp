@@ -102,7 +102,7 @@ Point Patient::get_location(){
 
 
 int Patient::get_road_cost_patient_hospital(){
-    return get_road_cost(city, patient_coordination_, selected_hospital_->get_location());
+    return get_road_cost(patient_coordination_, selected_hospital_->get_location());
 }
 
 
@@ -162,7 +162,7 @@ int Ambulance::get_ambulance_cost(){
         
         //policz koszt drogi karetki do pacjenta, pacjenta do szpitala.
         //następnie zaktualizuj pozycje karetki
-        road_cost = get_road_cost(city, actual_point, order_[current_patient]->get_location());
+        road_cost = get_road_cost(actual_point, order_[current_patient]->get_location());
         road_cost += order_[current_patient]->get_road_cost_patient_hospital();
         actual_point = order_[current_patient]->selected_hospital_location();
 
@@ -181,7 +181,7 @@ bool isValid(int x, int y, std::vector<std::vector<int>> grid, std::vector<std::
 
 //Funkcja do znajdowania najkrotszej drogi miedzy punktami w miescie, miasto jako
 //pionowe i poziome drogi (tam jakas wartosc np 1) miejsca nieosiagalne jako 0
-int BFS(std::vector<std::vector<int>> grid, const Point& start, const Point& end) {
+int BFS(const Point start, const Point end, std::vector<std::vector<int>> grid) {
     std::vector<std::vector<bool>> visited(CITY_LENGTH, std::vector<bool>(CITY_HEIGTH, false));
     std::queue<Point> q;
 
@@ -217,8 +217,8 @@ int BFS(std::vector<std::vector<int>> grid, const Point& start, const Point& end
 
 
 //liczy koszt przejazdu na podstawie siatki znalezionej przy użyciu BFS
-int get_road_cost(std::vector<std::vector<int>> grid, const Point& start, const Point& end, int step_time = 1){
-    int number_of_steps = BFS(grid, start, end);
+int get_road_cost(const Point& start, const Point& end, int step_time){
+    int number_of_steps = BFS(start, end);
     if (number_of_steps < 0){
         return -1;
     }
@@ -230,7 +230,7 @@ int get_road_cost(std::vector<std::vector<int>> grid, const Point& start, const 
 
 //HOSPITAL
 bool Hospital::doesSuppurt(Spec specialization, int needed_spec_value){
-    if(specialization_[specialization] == needed_spec_value){
+    if(specialization_[specialization] >= needed_spec_value){
         return true;
     }
     return false;
