@@ -87,7 +87,9 @@ public:
 //zwraca wspolrzedne pacjenta
     int* get_patient_location(int patient_n);
 
+    std::vector<Patient*>* get_order(){return &order_;};
 
+    Patient* get_patient(int patient_idx){return order_[patient_idx - 1];}
 private:
     //jeszcze nie wiem czy int, zalezy od tego jak beda reprezentowane szpitale
     int actual_hospital_;
