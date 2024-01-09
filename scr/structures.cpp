@@ -5,17 +5,6 @@
 
 //implementacja struktur
 
-
-
-
-
-//jako permutacja dla kazdej karetki z doborem pacjenta/pacjentow,
-//moze klasa a moze slownik
-int solution = 0;
-
-int emergency = 0;
-
-
 //te dwie to tak wstępnie, albo enum albo zwykła lista cos sie moze przyda
 
 std::string specializations[INJURED_NUMBER] = {
