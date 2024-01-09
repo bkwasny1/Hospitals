@@ -14,6 +14,7 @@
 //w tabu, przy jednej iteracji dodaje dwie pary do listy:
 // {karetka1, index1_przeniesionego_pacjenta}, {karetka2, index2_przeniesionego_pacjenta}
 
+
 class TabuList{
 public:
     TabuList(int size): size_(size * 2){}
@@ -28,8 +29,6 @@ private:
     std::vector<std::map<Ambulance, int>> tabu_l;
     int save_index = 0;
 };
-
-
 
 
 #endif //HOSPITALS_TABU_HPP
