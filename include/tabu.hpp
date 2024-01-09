@@ -3,6 +3,7 @@
 
 #define Neigbour_mode 1
 #define SIZE_ 5
+#define TABU_SIZE 5
 
 #include "structures.hpp"
 #include <map>
@@ -28,8 +29,6 @@ private:
     std::vector<std::map<Ambulance, int>> tabu_l;
     int save_index = 0;
 };
-
-
 
 
 #endif //HOSPITALS_TABU_HPP
