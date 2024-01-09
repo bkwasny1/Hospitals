@@ -3,6 +3,7 @@
 
 #define Neigbour_mode 1
 #define SIZE_ 5
+#define TABU_SIZE 5
 
 #include "structures.hpp"
 #include <map>
@@ -13,7 +14,6 @@
 //elementy zaczynajac od poczatku, wektor ma dlugosc dwa razy wieksza niz podana
 //w tabu, przy jednej iteracji dodaje dwie pary do listy:
 // {karetka1, index1_przeniesionego_pacjenta}, {karetka2, index2_przeniesionego_pacjenta}
-
 
 class TabuList{
 public:
