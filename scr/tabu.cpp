@@ -1,5 +1,6 @@
 #include "tabu.hpp"
-#include "queue"
+#include <queue>
+#include <iostream>
 
 #define NOT_IN_TABU 0
 #define IN_TABU 1
@@ -9,6 +10,8 @@
 #define FOURTH_NEIGH 4
 #define FIFTH_NEIGH 5
 #define MAX_VALID_SWAP_TRY 50
+#define MAX_ITER 10000
+#define CHOOSEN_NEIG 1
 
 //sprawdzilem swapa, get_best_hospital i objectivefunction - dzialaja poprawnie
 
@@ -209,7 +212,7 @@ void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choos
             }                           //jakis debil to pisał jak pierwszy element u niego to 1, no debil, dobrze ze zmienilem
                                                     //~Blazej 2k24 chwila przed katastrofa
             swap(*solutions[ambulance_idx1], *solutions[ambulacne_idx2], 0, 0);
-
+            Tabu.update_tabu(pair1, pair2);
             break;
         }
         case SECOND_NEIGH:{
@@ -227,6 +230,7 @@ void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choos
         default:
             break;
     }
+
 }
 
 //funkcja celu
@@ -266,6 +270,20 @@ std::vector<Ambulance*> TabuSearch(){
     TabuList tabu_l = TabuList(TABU_SIZE);
     //Inicjalizowanie pierwszego rozwiązania
     create_first_solution();
+    //tu trzeba bedzie sprawdzic czy kopiuje czy bedzie sie zmienial razem z ambulacne list
     std::vector<Ambulance*> global_solution = ambulance_list;
+    std::vector<Ambulance*> solution = ambulance_list;
+    double cost = ObjectiveFunction(global_solution);
 
+    for (int i = 0; i < MAX_ITER; i++){
+        //w tej funkcji od razu dodaje do tabu, zeby nie tworzyc kolejnych wskaznikow
+        NeighbourSelect(tabu_l, solution, CHOOSEN_NEIG);
+        double cost_temp = ObjectiveFunction(solution);
+        if (cost_temp < cost){
+            cost = cost_temp;
+            global_solution = solution;
+        }
+    }
+
+    return global_solution;
 }
