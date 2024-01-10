@@ -1,5 +1,6 @@
 #ifndef HOSPITALS_STRUCTURES_HPP
 #define HOSPITALS_STRUCTURES_HPP
+#include <utility>
 #include <vector>
 #include <iostream>
 #include <map>
@@ -8,15 +9,13 @@
 //rowne ilosci specjalizacji
 #define INJURED_NUMBER 13
 
-//do okreslenia jeszcze co do liczby   length jako ROWS
+//do okreslenia jeszcze co do liczby length jako ROWS
 #define CITY_LENGTH 25
 #define CITY_HEIGTH 50
 
 #define AMBULANCE_NUMBER 5
 
 //definicja struktur
-
-
 struct Point {
     int x, y, distance;
 };
@@ -134,11 +133,9 @@ public:
 //zwraca wspolrzedne pacjenta
     int* get_patient_location(int patient_n);
 
-    std::vector<Patient*>* get_order(){return &order_;}
+    std::vector<Patient*> get_order(){return order_;};
 
-    std::vector<Patient*> get_order_try(){return order_;};
-
-    void new_order(std::vector<Patient*> ord){order_ = ord;}
+    void new_order(std::vector<Patient*> ord){order_ = std::move(ord);}
 
     Patient* get_patient(int patient_idx){return order_[patient_idx - 1];}
 
@@ -150,14 +147,11 @@ public:
     }
 
 private:
-    //jeszcze nie wiem czy int, zalezy od tego jak beda reprezentowane szpitale
     Hospital* actual_hospital_;
     int id;
     std::vector<Patient*> order_;
     //przedstawia liczbe zakolejkowanych pacjentow
     int patient_count = 0;
 };
-
-
 
 #endif //HOSPITALS_STRUCTURES_HPP
