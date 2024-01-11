@@ -187,7 +187,7 @@ void swap(Ambulance &amb1, Ambulance &amb2, int patient1_idx, int patient2_idx) 
 /* Sasiedztwa  (przez dostępnych pacjentów rozumie sie ze nie ma ich w liscie tabu)
 1 - wymiana zawsze pierwszych wolnych pacjentow miedzy losowymi karetkami
 2 - wymiana losowych dostępnych pacjentów między losowymi karetkami
-3 - losowa zamiana każdego pacjenta między karetkami
+3 - wylosowanie jednej karetki, wybranie losowego pacjenta i przeniesienie go do innej losowej karetki
 4 - wzięcie najlepszego dostępnego rozwiązania
 5 - co n-ta iteracje wziecie najgorszego rozwiazania
 */
@@ -215,10 +215,69 @@ void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choos
             Tabu.update_tabu(pair1, pair2);
             break;
         }
+
+
         case SECOND_NEIGH:{
+            srand(time(nullptr));
+            int counter = 0;
+            int ambulance_idx1 = rand() % AMBULANCE_NUMBER;   //wybór losowych karetek
+            int ambulance_idx2 = rand() % AMBULANCE_NUMBER;
+
+            int numb_of_pat_idx1 = solutions[ambulance_idx1]->get_patient_count();  //liczba pacjentów dla wybranych losowo karetek
+            int numb_of_pat_idx2 = solutions[ambulance_idx2]->get_patient_count();
+
+            int pat_idx1 = rand() % numb_of_pat_idx1;  //wybór losowych pacjentów dla wybranych losowo karetek
+            int pat_idx2 = rand() % numb_of_pat_idx2;
+
+            std::map<Ambulance, int> pair1 = {{*solutions[ambulance_idx1], pat_idx1}};
+            std::map<Ambulance, int> pair2 = {{*solutions[ambulance_idx2], pat_idx2}};
+
+            while (ambulance_idx2 == ambulance_idx1 || !Tabu.check_if_in_tabu(pair1, pair2)) {
+                ambulance_idx2 = rand() % AMBULANCE_NUMBER;
+                int numb_of_pat_idx2 = solutions[ambulance_idx2]->get_patient_count();
+                int pat_idx2 = rand() % numb_of_pat_idx2;
+                pair2 = {{*solutions[ambulance_idx2], pat_idx2}};
+                counter++;
+                if (counter == MAX_VALID_SWAP_TRY) {
+                    break;
+                }
+            }
+
+            swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], 0, 0);
+            Tabu.update_tabu(pair1, pair2);
             break;
         }
+
+
         case THIRD_NEIGH:{
+            srand(time(nullptr));
+            int counter = 0;
+            int ambulance_idx1 = rand() % AMBULANCE_NUMBER;   //wybór losowej kareteki z której bedzie usuwany pacjent
+            int ambulance_idx2 = rand() % AMBULANCE_NUMBER;   //wybór losowej karetki do której bedzie dodawany pacjent
+
+            int numb_of_pat_idx1 = solutions[ambulance_idx1]->get_patient_count();  //liczba pacjentów dla wybranej losowo karetki z której będzie usuwany pacjent
+
+            int pat_idx1 = rand() % numb_of_pat_idx1;  //losowy wybór pacjenta do usunięcia
+
+
+            while (ambulance_idx2 == ambulance_idx1) {
+                ambulance_idx2 = rand() % AMBULANCE_NUMBER;
+                counter++;
+                if (counter == MAX_VALID_SWAP_TRY) {
+                    break;
+                }
+            }
+
+            std::vector<Patient*> order1 = solutions[ambulance_idx1]->get_order();
+            std::vector<Patient*> order2 = solutions[ambulance_idx2]->get_order();
+
+            solutions[ambulance_idx2]->add_patient(order1[pat_idx1]);
+
+            order1.erase(order1.cbegin()+pat_idx1);
+
+            //Trzeba wymyslic jak w tym sąsiedztwie dodawać to listy tabu  i sprawdzanie czy zabronienie jest w tabu liscie
+
+
             break;
         }
         case FOURTH_NEIGH:{
