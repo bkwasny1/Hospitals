@@ -47,19 +47,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "D:\Clion\CLion 2021.3.3\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "G:\Program Files\semestr3\JetBrains\CLion 2021.3.3\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "D:\Clion\CLion 2021.3.3\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = "G:\Program Files\semestr3\JetBrains\CLion 2021.3.3\bin\cmake\win\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "D:\Semestr 5\Badania Operacyjne\Projekt\Hospitals"
+CMAKE_SOURCE_DIR = "G:\Program Files\semestr5\Badania operacyjne 2\Projekt\Hospitals"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "D:\Semestr 5\Badania Operacyjne\Projekt\Hospitals\cmake-build-debug"
+CMAKE_BINARY_DIR = "G:\Program Files\semestr5\Badania operacyjne 2\Projekt\Hospitals\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -67,7 +67,7 @@ CMAKE_BINARY_DIR = "D:\Semestr 5\Badania Operacyjne\Projekt\Hospitals\cmake-buil
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"D:\Clion\CLion 2021.3.3\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	"G:\Program Files\semestr3\JetBrains\CLion 2021.3.3\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -77,7 +77,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"D:\Clion\CLion 2021.3.3\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"G:\Program Files\semestr3\JetBrains\CLion 2021.3.3\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Semestr 5\Badania Operacyjne\Projekt\Hospitals\cmake-build-debug\CMakeFiles" "D:\Semestr 5\Badania Operacyjne\Projekt\Hospitals\cmake-build-debug\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "G:\Program Files\semestr5\Badania operacyjne 2\Projekt\Hospitals\cmake-build-debug\CMakeFiles" "G:\Program Files\semestr5\Badania operacyjne 2\Projekt\Hospitals\cmake-build-debug\\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Semestr 5\Badania Operacyjne\Projekt\Hospitals\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "G:\Program Files\semestr5\Badania operacyjne 2\Projekt\Hospitals\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -200,30 +200,6 @@ scr/tabu.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hospitals.dir\build.make CMakeFiles/Hospitals.dir/scr/tabu.cpp.s
 .PHONY : scr/tabu.cpp.s
 
-scr/window.obj: scr/window.cpp.obj
-.PHONY : scr/window.obj
-
-# target to build an object file
-scr/window.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hospitals.dir\build.make CMakeFiles/Hospitals.dir/scr/window.cpp.obj
-.PHONY : scr/window.cpp.obj
-
-scr/window.i: scr/window.cpp.i
-.PHONY : scr/window.i
-
-# target to preprocess a source file
-scr/window.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hospitals.dir\build.make CMakeFiles/Hospitals.dir/scr/window.cpp.i
-.PHONY : scr/window.cpp.i
-
-scr/window.s: scr/window.cpp.s
-.PHONY : scr/window.s
-
-# target to generate assembly for a file
-scr/window.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hospitals.dir\build.make CMakeFiles/Hospitals.dir/scr/window.cpp.s
-.PHONY : scr/window.cpp.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -242,9 +218,6 @@ help:
 	@echo ... scr/tabu.obj
 	@echo ... scr/tabu.i
 	@echo ... scr/tabu.s
-	@echo ... scr/window.obj
-	@echo ... scr/window.i
-	@echo ... scr/window.s
 .PHONY : help
 
 

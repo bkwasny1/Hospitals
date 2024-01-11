@@ -1,7 +1,7 @@
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.5)
 project(Hospitals)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 # Dodaj wszystkie pliki źródłowe z folderu 'src'
 file(GLOB SRC_FILES src/*.cpp)
@@ -10,7 +10,8 @@ file(GLOB SRC_FILES src/*.cpp)
 file(GLOB HEADER_FILES include/*.hpp)
 
 # Dodaj pliki źródłowe i nagłówkowe do projektu
-add_executable(Hospitals main.cpp include/tabu.hpp scr/tabu.cpp scr/window.cpp include/window.hpp include/structures.hpp scr/structures.cpp)
+add_executable(Hospitals main.cpp include/tabu.hpp scr/tabu.cpp include/structures.hpp
+        scr/structures.cpp )
 
 # Dodaj ścieżki do folderów include
 target_include_directories(Hospitals PRIVATE include)

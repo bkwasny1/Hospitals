@@ -5,8 +5,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/Hospitals.dir/scr/structures.cpp.obj.d"
   "CMakeFiles/Hospitals.dir/scr/tabu.cpp.obj"
   "CMakeFiles/Hospitals.dir/scr/tabu.cpp.obj.d"
-  "CMakeFiles/Hospitals.dir/scr/window.cpp.obj"
-  "CMakeFiles/Hospitals.dir/scr/window.cpp.obj.d"
   "Hospitals.exe"
   "Hospitals.exe.manifest"
   "Hospitals.pdb"

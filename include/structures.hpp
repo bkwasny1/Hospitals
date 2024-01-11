@@ -80,6 +80,8 @@ public:
 
     std::map<std::string, int> get_injuries_list(){return patient_injuries_;}
 
+    int get_patient_id(){return id_;}
+
 private:
     int id_;
     int x_;
@@ -113,6 +115,9 @@ public:
     int number_of_patients() {return patient_count;}
 //dodaje pacjenta do karetki
     void add_patient(Patient* patient);
+
+    //zwraca ilosc pacjentów
+    int get_patient_count(){return patient_count;};
 
 //w kazdej funkcji mozna wybrac o ktorego pacjenta chodzi
 //zwraca priorytet pacjenta

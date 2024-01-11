@@ -8,104 +8,98 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug"/>
+				<Option working_dir="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/Clion/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="D:/Clion/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Clion/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Clion/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug"/>
+				<Option working_dir="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/Clion/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="D:/Clion/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Clion/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Clion/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Hospitals">
-				<Option output="D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Hospitals.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug"/>
+				<Option output="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Hospitals.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/include"/>
-					<Add directory="D:/Clion/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
-					<Add directory="D:/Clion/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="D:/Clion/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
-					<Add directory="D:/Clion/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
-					<Add directory="D:/Clion/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
-					<Add directory="D:/Clion/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
-					<Add directory="D:/Clion/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/include"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/Clion/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 Hospitals"/>
-					<CompileFile command="D:/Clion/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Clion/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Clion/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 Hospitals"/>
+					<CompileFile command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Hospitals/fast">
-				<Option output="D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Hospitals.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug"/>
+				<Option output="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Hospitals.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/include"/>
-					<Add directory="D:/Clion/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
-					<Add directory="D:/Clion/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="D:/Clion/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
-					<Add directory="D:/Clion/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
-					<Add directory="D:/Clion/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
-					<Add directory="D:/Clion/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
-					<Add directory="D:/Clion/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/include"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/Clion/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 Hospitals/fast"/>
-					<CompileFile command="D:/Clion/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Clion/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Clion/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 Hospitals/fast"/>
+					<CompileFile command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug"/>
+				<Option working_dir="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/Clion/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="D:/Clion/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Clion/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Clion/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/include/structures.hpp">
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/include/structures.hpp">
 			<Option target="Hospitals"/>
 		</Unit>
-		<Unit filename="D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/include/tabu.hpp">
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/include/tabu.hpp">
 			<Option target="Hospitals"/>
 		</Unit>
-		<Unit filename="D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/include/window.hpp">
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/main.cpp">
 			<Option target="Hospitals"/>
 		</Unit>
-		<Unit filename="D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/main.cpp">
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/scr/structures.cpp">
 			<Option target="Hospitals"/>
 		</Unit>
-		<Unit filename="D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/scr/structures.cpp">
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/scr/tabu.cpp">
 			<Option target="Hospitals"/>
 		</Unit>
-		<Unit filename="D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/scr/tabu.cpp">
-			<Option target="Hospitals"/>
-		</Unit>
-		<Unit filename="D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/scr/window.cpp">
-			<Option target="Hospitals"/>
-		</Unit>
-		<Unit filename="D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/CMakeLists.txt">
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
