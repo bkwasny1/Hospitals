@@ -1,7 +1,14 @@
 #include <iostream>
 #include "tabu.hpp"
+#include "window.hpp"
 
-int main() {
-    std::cout << 1;
-    return 0;
+#include <QApplication>
+#include <QPushButton>
+
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    Window w;
+    w.show();
+    return a.exec();
 }

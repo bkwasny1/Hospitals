@@ -5,23 +5,13 @@
 		<Option title="Hospitals"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\Qt\;CMake Files\Qt\5.15.16\;CMake Files\Qt\5.15.16\mingw81_64\;CMake Files\Qt\5.15.16\mingw81_64\lib\;CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\;CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5\;CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Core\;CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Widgets\;CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
 					<Build command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
 					<CompileFile command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -34,14 +24,29 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add directory="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug"/>
+					<Add directory="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals"/>
 					<Add directory="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/include"/>
-					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
-					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
-					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
-					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
-					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
-					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="C:/Qt/Tools/QtCreator"/>
+					<Add directory="C:/Qt/5.15.2/mingw81_64"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin"/>
+					<Add directory="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Hospitals_autogen/include"/>
+					<Add directory="C:/Qt/5.15.16/mingw81_64/include"/>
+					<Add directory="C:/Qt/5.15.16/mingw81_64/include/QtCore"/>
+					<Add directory="C:/Qt/5.15.16/mingw81_64/./mkspecs/win32-g++"/>
+					<Add directory="C:/Qt/5.15.16/mingw81_64/include/QtWidgets"/>
+					<Add directory="C:/Qt/5.15.16/mingw81_64/include/QtGui"/>
+					<Add directory="C:/Qt/5.15.16/mingw81_64/include/QtANGLE"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 Hospitals"/>
@@ -57,17 +62,42 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add directory="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug"/>
+					<Add directory="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals"/>
 					<Add directory="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/include"/>
-					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
-					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
-					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
-					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
-					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
-					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="C:/Qt/Tools/QtCreator"/>
+					<Add directory="C:/Qt/5.15.2/mingw81_64"/>
+					<Add directory="C:/Qt/Tools/mingw810_64/bin"/>
+					<Add directory="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Hospitals_autogen/include"/>
+					<Add directory="C:/Qt/5.15.16/mingw81_64/include"/>
+					<Add directory="C:/Qt/5.15.16/mingw81_64/include/QtCore"/>
+					<Add directory="C:/Qt/5.15.16/mingw81_64/./mkspecs/win32-g++"/>
+					<Add directory="C:/Qt/5.15.16/mingw81_64/include/QtWidgets"/>
+					<Add directory="C:/Qt/5.15.16/mingw81_64/include/QtGui"/>
+					<Add directory="C:/Qt/5.15.16/mingw81_64/include/QtANGLE"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 Hospitals/fast"/>
+					<CompileFile command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
 					<CompileFile command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -83,11 +113,30 @@
 					<DistClean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="Hospitals_autogen">
+				<Option working_dir="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 Hospitals_autogen"/>
+					<CompileFile command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="G:/Program Files/semestr3/JetBrains/CLion 2021.3.3/bin/mingw/bin/mingw32-make.exe -f &quot;G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Hospitals_autogen/mocs_compilation.cpp">
+			<Option target="Hospitals"/>
+		</Unit>
 		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/include/structures.hpp">
 			<Option target="Hospitals"/>
 		</Unit>
 		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/include/tabu.hpp">
+			<Option target="Hospitals"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/include/ui_window.h">
+			<Option target="Hospitals"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/include/window.hpp">
 			<Option target="Hospitals"/>
 		</Unit>
 		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/main.cpp">
@@ -99,8 +148,116 @@
 		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/scr/tabu.cpp">
 			<Option target="Hospitals"/>
 		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/scr/window.cpp">
+			<Option target="Hospitals"/>
+		</Unit>
 		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5/Qt5Config.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5/Qt5ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5/Qt5ModuleLocation.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Core/Qt5CoreConfig.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Core/Qt5CoreMacros.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Widgets/Qt5Widgets_QWindowsVistaStylePlugin.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5GuiConfig.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QICNSPlugin.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QInsightTrackerPlugin.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QSvgIconPlugin.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QSvgPlugin.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QTgaPlugin.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QTiffPlugin.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QVirtualKeyboardPlugin.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QWbmpPlugin.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QWebGLIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QWebpPlugin.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QWindowsIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/Qt/5.15.16/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QXdgDesktopPortalThemePlugin.cmake">
+			<Option virtualFolder="CMake Files\Qt\5.15.16\mingw81_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>
