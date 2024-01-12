@@ -1,10 +1,8 @@
-//#include <tabu.hpp>
-
-//obsluga bazy danych
-#include <iostream>
-#include <fstream>
-#include <nlohmann/json.hpp>
+#include <tabu.hpp>
+#include "window.hpp"
 
 int main() {
+    wczytaj_dane();
+
     return 0;
 }

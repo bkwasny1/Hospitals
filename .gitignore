@@ -30,3 +30,5 @@ cmake-build-debug-mingw/.ninja_log
 cmake-build-debug-mingw/.ninja_deps
 
 cmake-build-debug/
+GUI/venv
+GUI/.idea
