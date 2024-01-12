@@ -14,6 +14,8 @@
 #define CITY_HEIGTH 50
 
 #define AMBULANCE_NUMBER 5
+#define PATIENTS_NUMBER 20
+
 
 //definicja struktur
 struct Point {
@@ -39,7 +41,6 @@ private:
     int y_;
     std::map<std::string, int> specialization_;
 };
-
 
 
 class Patient{

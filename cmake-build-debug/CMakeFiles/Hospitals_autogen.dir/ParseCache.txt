@@ -3,8 +3,8 @@ G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/include/structu
 G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/include/tabu.hpp
 G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/main.cpp
 G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/scr/structures.cpp
-G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/include/ui_window.h
 G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/scr/tabu.cpp
+G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/include/ui_window.h
 G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/include/window.hpp
  mmc:Q_OBJECT
  mdp:C:/Qt/5.15.16/mingw81_64/include/QtCore/qalgorithms.h

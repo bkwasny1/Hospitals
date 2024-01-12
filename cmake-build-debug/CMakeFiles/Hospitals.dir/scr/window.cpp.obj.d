@@ -297,38 +297,62 @@ CMakeFiles/Hospitals.dir/scr/window.cpp.obj: \
  C:/Qt/5.15.16/mingw81_64/include/QtGui/qinputmethod.h \
  C:/Qt/5.15.16/mingw81_64/include/QtCore/qlocale.h \
  C:/Qt/5.15.16/mingw81_64/include/QtCore/qvariant.h \
- C:/Qt/5.15.16/mingw81_64/include/QtWidgets/QHeaderView \
- C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qheaderview.h \
- C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qabstractitemview.h \
- C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/QFrame \
  C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qframe.h \
- C:/Qt/5.15.16/mingw81_64/include/QtCore/qabstractitemmodel.h \
- C:/Qt/5.15.16/mingw81_64/include/QtCore/qitemselectionmodel.h \
- C:/Qt/5.15.16/mingw81_64/include/QtCore/qset.h \
- C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qabstractitemdelegate.h \
- C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qstyleoption.h \
- C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qabstractspinbox.h \
- C:/Qt/5.15.16/mingw81_64/include/QtGui/qvalidator.h \
- C:/Qt/5.15.16/mingw81_64/include/QtCore/qregularexpression.h \
- C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qslider.h \
- C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qabstractslider.h \
- C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qstyle.h \
- C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qtabbar.h \
- C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qrubberband.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/QLabel \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qlabel.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qframe.h \
  C:/Qt/5.15.16/mingw81_64/include/QtWidgets/QMainWindow \
  C:/Qt/5.15.16/mingw81_64/include/QtWidgets/QMenuBar \
  C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qmenubar.h \
  C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qmenu.h \
  C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qaction.h \
  C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qactiongroup.h \
- C:/Qt/5.15.16/mingw81_64/include/QtWidgets/QPushButton \
- C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qpushbutton.h \
- C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qabstractbutton.h \
  C:/Qt/5.15.16/mingw81_64/include/QtWidgets/QRadioButton \
  C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qradiobutton.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qabstractbutton.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/QSpinBox \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qspinbox.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qabstractspinbox.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtGui/qvalidator.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtCore/qregularexpression.h \
  C:/Qt/5.15.16/mingw81_64/include/QtWidgets/QStatusBar \
  C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qstatusbar.h \
- C:/Qt/5.15.16/mingw81_64/include/QtWidgets/QTreeView \
- C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qtreeview.h \
  C:/Qt/5.15.16/mingw81_64/include/QtWidgets/QWidget \
- C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qwidget.h
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qwidget.h \
+ G:/Program\ Files/semestr5/Badania\ operacyjne\ 2/Projekt/Hospitals/include/tabu.hpp \
+ G:/Program\ Files/semestr5/Badania\ operacyjne\ 2/Projekt/Hospitals/include/structures.hpp \
+ G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iostream \
+ G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
+ G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
+ G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
+ G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
+ G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
+ G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
+ G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
+ G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
+ G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
+ G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
+ G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
+ G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
+ G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/QAction \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qaction.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/QButtonGroup \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qbuttongroup.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/QHBoxLayout \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qlayout.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qlayoutitem.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qgridlayout.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/QLineEdit \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qlineedit.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtGui/qtextcursor.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtGui/qtextformat.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtGui/qpen.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtGui/qtextoption.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/QPushButton \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/qpushbutton.h \
+ C:/Qt/5.15.16/mingw81_64/include/QtWidgets/QVBoxLayout \
+ G:/Program\ Files/semestr5/Badania\ operacyjne\ 2/Projekt/Hospitals/include/tabu.hpp

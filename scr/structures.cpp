@@ -7,7 +7,7 @@
 
 //te dwie to tak wstępnie, albo enum albo zwykła lista cos sie moze przyda
 
-std::string specializations[INJURED_NUMBER] = {
+std::vector<std::string> specializations= {
         "Ortopedia",
         "Okulistyka",
         "Neurologia",
@@ -21,23 +21,6 @@ std::string specializations[INJURED_NUMBER] = {
         "Psychiatria",
         "Oparzenia",
         "Gastroenterologia"};
-
-enum class Spec{
-    Ortopedia,
-    Okulistyka,
-    Neurologia,
-    Chirurgia,
-    Kardiologia,
-    Pediatria,
-    Endokrynologia,
-    Geriatria,
-    Ginekologia,
-    Urologia,
-    Psychiatria,
-    Oparzenia,
-    Gastroenterologia
-};
-
 
 //PATIENT
 

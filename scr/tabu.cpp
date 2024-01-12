@@ -4,6 +4,7 @@
 
 #define NOT_IN_TABU 0
 #define IN_TABU 1
+
 #define FIRST_NEIGH 1
 #define SECOND_NEIGH 2
 #define THIRD_NEIGH 3
@@ -57,7 +58,6 @@ bool isValid(int x, int y, std::vector<std::vector<int>>& grid, std::vector<std:
     return (x >= 0 && x < CITY_LENGTH && y >= 0 && y < CITY_HEIGTH && grid[x][y] && !visited[x][y]);
 }
 
-
 //Funkcja do znajdowania najkrotszej drogi miedzy punktami w miescie, miasto jako
 //pionowe i poziome drogi (tam jakas wartosc np 1) miejsca nieosiagalne jako 0
 int BFS(std::vector<std::vector<int>>& grid, const Point& start, const Point& end) {
@@ -101,11 +101,11 @@ int BFS(std::vector<std::vector<int>>& grid, const Point& start, const Point& en
 Hospital* get_best_hospital(Patient *pat){
     std::vector<Hospital*> spec_hospital;
     std::map<std::string, int> patient_injuries = pat -> get_injuries_list();
+
     for (auto hospital : hospital_list){
         int correct = 1;
         std::map<std::string, int> spec = hospital->get_spec_list();
         for (auto injurie : patient_injuries){
-            //dokonczyc
             if (spec[injurie.first] < patient_injuries[injurie.first]){
                 correct = 0;
                 break;
@@ -115,8 +115,10 @@ Hospital* get_best_hospital(Patient *pat){
             spec_hospital.push_back(hospital);
         }
     }
+
     int min_time = 9999999;
     Hospital* besthospital = spec_hospital[0];
+
     for (auto hospital : spec_hospital){
         Point hosp_loc = Point{hospital->get_hosp_location_x(), hospital->get_hosp_location_y(), 0};
         Point patient_loc = Point{pat->get_location_x(), pat->get_location_y(), 0};
@@ -176,9 +178,11 @@ int TabuList::check_if_in_tabu(std::map<Ambulance, int> const &pair1, std::map<A
 void swap(Ambulance &amb1, Ambulance &amb2, int patient1_idx, int patient2_idx) {
     std::vector<Patient*> order1 = amb1.get_order();
     std::vector<Patient*> order2 = amb2.get_order();
+
     Patient* patient_temp = order1[patient1_idx];
     order1[patient1_idx] = order2[patient2_idx];
     order2[patient2_idx] = patient_temp;
+
     amb1.new_order(order1);
     amb2.new_order(order2);
 }
@@ -202,6 +206,7 @@ void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choos
             int ambulacne_idx2 = rand() % AMBULANCE_NUMBER;
             int pat1_id = solutions[ambulance_idx1]->get_order()[0]->get_patient_id();
             int pat2_id = solutions[ambulance_idx1]->get_order()[0]->get_patient_id();
+
             std::map<Ambulance, int> pair1 = {{*solutions[ambulance_idx1], pat1_id}};
             std::map<Ambulance, int> pair2 = {{*solutions[ambulacne_idx2], pat2_id}};
 

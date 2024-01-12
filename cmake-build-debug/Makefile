@@ -128,43 +128,6 @@ Hospitals/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hospitals.dir\build.make CMakeFiles/Hospitals.dir/build
 .PHONY : Hospitals/fast
 
-#=============================================================================
-# Target rules for targets named Hospitals_autogen
-
-# Build rule for target.
-Hospitals_autogen: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Hospitals_autogen
-.PHONY : Hospitals_autogen
-
-# fast build rule for target.
-Hospitals_autogen/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hospitals_autogen.dir\build.make CMakeFiles/Hospitals_autogen.dir/build
-.PHONY : Hospitals_autogen/fast
-
-Hospitals_autogen/mocs_compilation.obj: Hospitals_autogen/mocs_compilation.cpp.obj
-.PHONY : Hospitals_autogen/mocs_compilation.obj
-
-# target to build an object file
-Hospitals_autogen/mocs_compilation.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hospitals.dir\build.make CMakeFiles/Hospitals.dir/Hospitals_autogen/mocs_compilation.cpp.obj
-.PHONY : Hospitals_autogen/mocs_compilation.cpp.obj
-
-Hospitals_autogen/mocs_compilation.i: Hospitals_autogen/mocs_compilation.cpp.i
-.PHONY : Hospitals_autogen/mocs_compilation.i
-
-# target to preprocess a source file
-Hospitals_autogen/mocs_compilation.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hospitals.dir\build.make CMakeFiles/Hospitals.dir/Hospitals_autogen/mocs_compilation.cpp.i
-.PHONY : Hospitals_autogen/mocs_compilation.cpp.i
-
-Hospitals_autogen/mocs_compilation.s: Hospitals_autogen/mocs_compilation.cpp.s
-.PHONY : Hospitals_autogen/mocs_compilation.s
-
-# target to generate assembly for a file
-Hospitals_autogen/mocs_compilation.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hospitals.dir\build.make CMakeFiles/Hospitals.dir/Hospitals_autogen/mocs_compilation.cpp.s
-.PHONY : Hospitals_autogen/mocs_compilation.cpp.s
-
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -237,30 +200,6 @@ scr/tabu.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hospitals.dir\build.make CMakeFiles/Hospitals.dir/scr/tabu.cpp.s
 .PHONY : scr/tabu.cpp.s
 
-scr/window.obj: scr/window.cpp.obj
-.PHONY : scr/window.obj
-
-# target to build an object file
-scr/window.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hospitals.dir\build.make CMakeFiles/Hospitals.dir/scr/window.cpp.obj
-.PHONY : scr/window.cpp.obj
-
-scr/window.i: scr/window.cpp.i
-.PHONY : scr/window.i
-
-# target to preprocess a source file
-scr/window.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hospitals.dir\build.make CMakeFiles/Hospitals.dir/scr/window.cpp.i
-.PHONY : scr/window.cpp.i
-
-scr/window.s: scr/window.cpp.s
-.PHONY : scr/window.s
-
-# target to generate assembly for a file
-scr/window.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hospitals.dir\build.make CMakeFiles/Hospitals.dir/scr/window.cpp.s
-.PHONY : scr/window.cpp.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -269,11 +208,7 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... Hospitals_autogen
 	@echo ... Hospitals
-	@echo ... Hospitals_autogen/mocs_compilation.obj
-	@echo ... Hospitals_autogen/mocs_compilation.i
-	@echo ... Hospitals_autogen/mocs_compilation.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
@@ -283,9 +218,6 @@ help:
 	@echo ... scr/tabu.obj
 	@echo ... scr/tabu.i
 	@echo ... scr/tabu.s
-	@echo ... scr/window.obj
-	@echo ... scr/window.i
-	@echo ... scr/window.s
 .PHONY : help
 
 
