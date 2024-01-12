@@ -189,6 +189,7 @@ void swap(Ambulance &amb1, Ambulance &amb2, int patient1_idx, int patient2_idx) 
 2 - wymiana losowych dostępnych pacjentów między losowymi karetkami
 3 - losowa zamiana każdego pacjenta między karetkami
 4 - co n-ta iteracje wziecie najgorszego rozwiazania
+
 */
 
 //dodac TabuListe w implementacji

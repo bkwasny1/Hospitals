@@ -140,6 +140,9 @@ public:
 
     std::vector<Patient*> get_order(){return order_;};
 
+//zwraca ilosc pacjentów
+    int get_patient_count(){return patient_count;};
+
     void new_order(std::vector<Patient*> ord){order_ = std::move(ord);}
 
     Patient* get_patient(int patient_idx){return order_[patient_idx - 1];}
