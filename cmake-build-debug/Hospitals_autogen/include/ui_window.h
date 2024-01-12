@@ -11,68 +11,73 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QRadioButton>
-#include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTreeView>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
-class Ui_Window
+class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QPushButton *pushButton;
-    QRadioButton *radioButton;
-    QTreeView *treeView;
-    QMenuBar *menubar;
-    QStatusBar *statusbar;
+    QVBoxLayout *verticalLayout;
+    QLineEdit *lineEdit_a;
+    QLineEdit *lineEdit_b;
+    QPushButton *pushButton_start;
+    QLabel *label_result;
 
-    void setupUi(QMainWindow *Window)
+    void setupUi(QMainWindow *MainWindow)
     {
-        if (Window->objectName().isEmpty())
-            Window->setObjectName(QString::fromUtf8("Window"));
-        Window->resize(800, 600);
-        centralwidget = new QWidget(Window);
+        if (MainWindow->objectName().isEmpty())
+            MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
+        MainWindow->resize(400, 300);
+        centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(160, 140, 80, 24));
-        radioButton = new QRadioButton(centralwidget);
-        radioButton->setObjectName(QString::fromUtf8("radioButton"));
-        radioButton->setGeometry(QRect(230, 250, 91, 22));
-        treeView = new QTreeView(centralwidget);
-        treeView->setObjectName(QString::fromUtf8("treeView"));
-        treeView->setGeometry(QRect(360, 130, 256, 192));
-        Window->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(Window);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 21));
-        Window->setMenuBar(menubar);
-        statusbar = new QStatusBar(Window);
-        statusbar->setObjectName(QString::fromUtf8("statusbar"));
-        Window->setStatusBar(statusbar);
+        verticalLayout = new QVBoxLayout(centralwidget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        lineEdit_a = new QLineEdit(centralwidget);
+        lineEdit_a->setObjectName(QString::fromUtf8("lineEdit_a"));
 
-        retranslateUi(Window);
+        verticalLayout->addWidget(lineEdit_a);
 
-        QMetaObject::connectSlotsByName(Window);
+        lineEdit_b = new QLineEdit(centralwidget);
+        lineEdit_b->setObjectName(QString::fromUtf8("lineEdit_b"));
+
+        verticalLayout->addWidget(lineEdit_b);
+
+        pushButton_start = new QPushButton(centralwidget);
+        pushButton_start->setObjectName(QString::fromUtf8("pushButton_start"));
+
+        verticalLayout->addWidget(pushButton_start);
+
+        label_result = new QLabel(centralwidget);
+        label_result->setObjectName(QString::fromUtf8("label_result"));
+
+        verticalLayout->addWidget(label_result);
+
+        MainWindow->setCentralWidget(centralwidget);
+
+        retranslateUi(MainWindow);
+        QObject::connect(pushButton_start, SIGNAL(clicked()), MainWindow, SLOT(on_pushButton_start_clicked()));
+
+        QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
-    void retranslateUi(QMainWindow *Window)
+    void retranslateUi(QMainWindow *MainWindow)
     {
-        Window->setWindowTitle(QCoreApplication::translate("Window", "Window", nullptr));
-        pushButton->setText(QCoreApplication::translate("Window", "PushButton", nullptr));
-        radioButton->setText(QCoreApplication::translate("Window", "RadioButton", nullptr));
+        pushButton_start->setText(QCoreApplication::translate("MainWindow", "Start", nullptr));
+        label_result->setText(QString());
+        (void)MainWindow;
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class Window: public Ui_Window {};
+    class MainWindow: public Ui_MainWindow {};
 } // namespace Ui
 
 QT_END_NAMESPACE
