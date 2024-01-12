@@ -187,9 +187,9 @@ void swap(Ambulance &amb1, Ambulance &amb2, int patient1_idx, int patient2_idx) 
 /* Sasiedztwa  (przez dostępnych pacjentów rozumie sie ze nie ma ich w liscie tabu)
 1 - wymiana zawsze pierwszych wolnych pacjentow miedzy losowymi karetkami
 2 - wymiana losowych dostępnych pacjentów między losowymi karetkami
-3 - wylosowanie jednej karetki, wybranie losowego pacjenta i przeniesienie go do innej losowej karetki
-4 - wzięcie najlepszego dostępnego rozwiązania
-5 - co n-ta iteracje wziecie najgorszego rozwiazania
+3 - losowa zamiana każdego pacjenta między karetkami
+4 - co n-ta iteracje wziecie najgorszego rozwiazania
+
 */
 
 //dodac TabuListe w implementacji
@@ -200,8 +200,11 @@ void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choos
             int counter = 0;
             int ambulance_idx1 = rand() % AMBULANCE_NUMBER;
             int ambulacne_idx2 = rand() % AMBULANCE_NUMBER;
-            std::map<Ambulance, int> pair1 = {{*solutions[ambulance_idx1], 0}};
-            std::map<Ambulance, int> pair2 = {{*solutions[ambulacne_idx2], 0}};
+            int pat1_id = solutions[ambulance_idx1]->get_order()[0]->get_patient_id();
+            int pat2_id = solutions[ambulance_idx1]->get_order()[0]->get_patient_id();
+            std::map<Ambulance, int> pair1 = {{*solutions[ambulance_idx1], pat1_id}};
+            std::map<Ambulance, int> pair2 = {{*solutions[ambulacne_idx2], pat2_id}};
+
             while (ambulacne_idx2 == ambulance_idx1 || !Tabu.check_if_in_tabu(pair1, pair2)) {
                 ambulacne_idx2 = rand() % AMBULANCE_NUMBER;
                 pair2 = {{*solutions[ambulacne_idx2], 0}};
@@ -209,8 +212,8 @@ void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choos
                 if (counter == MAX_VALID_SWAP_TRY){
                     break;
                 }
-            }                           //jakis debil to pisał jak pierwszy element u niego to 1, no debil, dobrze ze zmienilem
-                                                    //~Blazej 2k24 chwila przed katastrofa
+            }
+
             swap(*solutions[ambulance_idx1], *solutions[ambulacne_idx2], 0, 0);
             Tabu.update_tabu(pair1, pair2);
             break;

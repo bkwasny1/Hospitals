@@ -8,14 +8,15 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/main.cpp" "CMakeFiles/Hospitals.dir/main.cpp.obj" "gcc" "CMakeFiles/Hospitals.dir/main.cpp.obj.d"
-  "D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/scr/structures.cpp" "CMakeFiles/Hospitals.dir/scr/structures.cpp.obj" "gcc" "CMakeFiles/Hospitals.dir/scr/structures.cpp.obj.d"
-  "D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/scr/tabu.cpp" "CMakeFiles/Hospitals.dir/scr/tabu.cpp.obj" "gcc" "CMakeFiles/Hospitals.dir/scr/tabu.cpp.obj.d"
-  "D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/scr/window.cpp" "CMakeFiles/Hospitals.dir/scr/window.cpp.obj" "gcc" "CMakeFiles/Hospitals.dir/scr/window.cpp.obj.d"
+  "G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug/Hospitals_autogen/mocs_compilation.cpp" "CMakeFiles/Hospitals.dir/Hospitals_autogen/mocs_compilation.cpp.obj" "gcc" "CMakeFiles/Hospitals.dir/Hospitals_autogen/mocs_compilation.cpp.obj.d"
+  "G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/main.cpp" "CMakeFiles/Hospitals.dir/main.cpp.obj" "gcc" "CMakeFiles/Hospitals.dir/main.cpp.obj.d"
+  "G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/scr/structures.cpp" "CMakeFiles/Hospitals.dir/scr/structures.cpp.obj" "gcc" "CMakeFiles/Hospitals.dir/scr/structures.cpp.obj.d"
+  "G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/scr/tabu.cpp" "CMakeFiles/Hospitals.dir/scr/tabu.cpp.obj" "gcc" "CMakeFiles/Hospitals.dir/scr/tabu.cpp.obj.d"
+  "G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/scr/window.cpp" "CMakeFiles/Hospitals.dir/scr/window.cpp.obj" "gcc" "CMakeFiles/Hospitals.dir/scr/window.cpp.obj.d"
   )
 
-# Targets to which this target links.
-set(CMAKE_TARGET_LINKED_INFO_FILES
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
   )
 
 # Fortran module output directory.

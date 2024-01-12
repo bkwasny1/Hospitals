@@ -1,7 +1,23 @@
-#ifndef HOSPITALS_WINDOW_HPP
-#define HOSPITALS_WINDOW_HPP
+#ifndef WINDOW_HPP
+#define WINDOW_HPP
 
-//tutaj definicje potrzebnych funkcji nie wiem jeszcze jakich
+#include <QMainWindow>
 
+QT_BEGIN_NAMESPACE
+namespace Ui {
+class Window;
+}
+QT_END_NAMESPACE
 
-#endif //HOSPITALS_WINDOW_HPP
+class Window : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    Window(QWidget *parent = nullptr);
+    ~Window();
+
+private:
+    Ui::Window *ui;
+};
+#endif // WINDOW_HPP

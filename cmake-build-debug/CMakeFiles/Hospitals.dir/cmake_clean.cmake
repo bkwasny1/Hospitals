@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Hospitals.dir/Hospitals_autogen/mocs_compilation.cpp.obj"
+  "CMakeFiles/Hospitals.dir/Hospitals_autogen/mocs_compilation.cpp.obj.d"
   "CMakeFiles/Hospitals.dir/main.cpp.obj"
   "CMakeFiles/Hospitals.dir/main.cpp.obj.d"
   "CMakeFiles/Hospitals.dir/scr/structures.cpp.obj"
@@ -7,6 +9,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/Hospitals.dir/scr/tabu.cpp.obj.d"
   "CMakeFiles/Hospitals.dir/scr/window.cpp.obj"
   "CMakeFiles/Hospitals.dir/scr/window.cpp.obj.d"
+  "CMakeFiles/Hospitals_autogen.dir/AutogenUsed.txt"
+  "CMakeFiles/Hospitals_autogen.dir/ParseCache.txt"
+  "Hospitals_autogen"
   "Hospitals.exe"
   "Hospitals.exe.manifest"
   "Hospitals.pdb"
