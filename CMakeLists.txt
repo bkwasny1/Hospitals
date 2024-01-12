@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 3.1)
 project(Hospitals)
 
 set(CMAKE_CXX_STANDARD 17)

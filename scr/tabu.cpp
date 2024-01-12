@@ -10,9 +10,26 @@
 #define THIRD_NEIGH 3
 #define FOURTH_NEIGH 4
 #define FIFTH_NEIGH 5
-#define MAX_VALID_SWAP_TRY 50
+
 #define MAX_ITER 10000
 #define CHOOSEN_NEIG 1
+#define ASPIRATION 10000
+
+
+std::vector<std::string> specializations = {
+        "Ortopedia",
+        "Okulistyka",
+        "Neurologia",
+        "Chirurgia",
+        "Kardiologia",
+        "Pediatria",
+        "Endokrynologia",
+        "Geriatria",
+        "Ginekologia",
+        "Urologia",
+        "Psychiatria",
+        "Oparzenia",
+        "Gastroenterologia"};
 
 //sprawdzilem swapa, get_best_hospital i objectivefunction - dzialaja poprawnie
 
@@ -75,7 +92,6 @@ int BFS(std::vector<std::vector<int>>& grid, const Point& start, const Point& en
         q.pop();
 
         if (current.x == end.x && current.y == end.y) {
-            std::cout << "Znaleziono cel!" << std::endl;
             return current.distance; // Zwraca ilość kroków do celu
         }
 
@@ -89,8 +105,6 @@ int BFS(std::vector<std::vector<int>>& grid, const Point& start, const Point& en
             }
         }
     }
-
-    std::cout << "Nie znaleziono ścieżki!" << std::endl;
     return -1; // Brak ścieżki
 }
 
@@ -201,7 +215,6 @@ void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choos
     switch(choose_neigh) {
         case FIRST_NEIGH: {
             srand(time(nullptr));
-            int counter = 0;
             int ambulance_idx1 = rand() % AMBULANCE_NUMBER;
             int ambulacne_idx2 = rand() % AMBULANCE_NUMBER;
             int pat1_id = solutions[ambulance_idx1]->get_order()[0]->get_patient_id();
@@ -213,17 +226,12 @@ void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choos
             while (ambulacne_idx2 == ambulance_idx1 || !Tabu.check_if_in_tabu(pair1, pair2)) {
                 ambulacne_idx2 = rand() % AMBULANCE_NUMBER;
                 pair2 = {{*solutions[ambulacne_idx2], 0}};
-                counter++;
-                if (counter == MAX_VALID_SWAP_TRY){
-                    break;
-                }
             }
 
             swap(*solutions[ambulance_idx1], *solutions[ambulacne_idx2], 0, 0);
             Tabu.update_tabu(pair1, pair2);
             break;
         }
-
 
         case SECOND_NEIGH:{
             srand(time(nullptr));
@@ -246,9 +254,6 @@ void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choos
                 int pat_idx2 = rand() % numb_of_pat_idx2;
                 pair2 = {{*solutions[ambulance_idx2], pat_idx2}};
                 counter++;
-                if (counter == MAX_VALID_SWAP_TRY) {
-                    break;
-                }
             }
 
             swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], 0, 0);
@@ -271,9 +276,7 @@ void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choos
             while (ambulance_idx2 == ambulance_idx1) {
                 ambulance_idx2 = rand() % AMBULANCE_NUMBER;
                 counter++;
-                if (counter == MAX_VALID_SWAP_TRY) {
-                    break;
-                }
+
             }
 
             std::vector<Patient*> order1 = solutions[ambulance_idx1]->get_order();
@@ -305,6 +308,10 @@ double ObjectiveFunction(std::vector<Ambulance*> const &solution){
     double cost;
     for (auto ambulance : solution){
         for (auto patient : ambulance->get_order()){
+            if (patient == nullptr){
+                break;
+            }
+
             int p_time = patient->get_time();
             Point pat_loc = {patient->get_location_x(), patient ->get_location_y(), 0};
             Point amb_loc = {ambulance->get_amb_location_x(), ambulance->get_amb_location_y(), 0};

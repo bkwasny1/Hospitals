@@ -176,7 +176,6 @@ CMakeFiles/Hospitals.dir/scr/structures.cpp.obj: G:/Program\ Files/semestr5/Bada
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cpp_type_traits.h \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cxxabi_forced.h \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cxxabi_init_exception.h \
-  G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/deque.tcc \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/erase_if.h \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception.h \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception_defines.h \
@@ -210,16 +209,13 @@ CMakeFiles/Hospitals.dir/scr/structures.cpp.obj: G:/Program\ Files/semestr5/Bada
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algobase.h \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_bvector.h \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_construct.h \
-  G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_deque.h \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_function.h \
-  G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_heap.h \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_iterator.h \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_iterator_base_funcs.h \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_iterator_base_types.h \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_map.h \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_multimap.h \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_pair.h \
-  G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_queue.h \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_relops.h \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tree.h \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_uninitialized.h \
@@ -242,7 +238,6 @@ CMakeFiles/Hospitals.dir/scr/structures.cpp.obj: G:/Program\ Files/semestr5/Bada
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/assertions.h \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/debug.h \
-  G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/deque \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/exception \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/aligned_buffer.h \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/alloc_traits.h \
@@ -259,7 +254,6 @@ CMakeFiles/Hospitals.dir/scr/structures.cpp.obj: G:/Program\ Files/semestr5/Bada
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/new \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/pstl_config.h \
-  G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/queue \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdexcept \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdlib.h \
   G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/streambuf \
@@ -819,10 +813,10 @@ G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/x86_64-w64-mingw3
 
 G:/Program\ Files/semestr5/Badania\ operacyjne\ 2/Projekt/Hospitals/scr/structures.cpp:
 
+G:/Program\ Files/semestr5/Badania\ operacyjne\ 2/Projekt/Hospitals/scr/tabu.cpp:
+
 G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/deque.tcc:
 
 G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_queue.h:
 
 G:/Program\ Files/semestr3/JetBrains/CLion\ 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/queue:
-
-G:/Program\ Files/semestr5/Badania\ operacyjne\ 2/Projekt/Hospitals/scr/tabu.cpp:
