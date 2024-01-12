@@ -28,3 +28,5 @@ cmake-build-debug-mingw/CMakeFiles/Hospitals.dir/scr/tabu.cpp.obj
 *.obj
 cmake-build-debug-mingw/.ninja_log
 cmake-build-debug-mingw/.ninja_deps
+
+cmake-build-debug/
