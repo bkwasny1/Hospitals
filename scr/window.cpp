@@ -1,14 +1,20 @@
 #include "window.hpp"
 
+int liczba_iteracji;
+int kryterium_aspiracji;
+int dlugosc_listy_tabu;
+int dobor_sasiedztwa;
+
+
 int wczytaj_dane(){
 
     // Strumień do odczytu pliku JSON
-    std::ifstream plik(jsonPath);
+    std::ifstream plik(data_file_path);
 
     // Sprawdź, czy plik został otwarty poprawnie
     if (!plik.is_open()) {
-    std::cerr << "Nie mozna otworzyc pliku " << jsonPath << std::endl;
-    return 1; // Zwróć kod błędu
+        std::cerr << "Nie mozna otworzyc pliku " << data_file_path << std::endl;
+        return 1;
     }
 
     // Parsuj dane z pliku JSON
@@ -16,12 +22,10 @@ int wczytaj_dane(){
     plik >> dane;
 
     // Wyciągnij dane i zapisz do zmiennych
-    std::string imie = dane["imie"];
-    int wiek = dane["wiek"];
-
-    // Wypisz odczytane dane na ekran
-    std::cout << "Imie: " << imie << std::endl;
-    std::cout << "Wiek: " << wiek << " lat" << std::endl;
+    liczba_iteracji = dane["liczba_iteracji"];
+    kryterium_aspiracji = dane["kryterium_aspiracji"];
+    dlugosc_listy_tabu = dane["dlugosc_listy_tabu"];
+    dobor_sasiedztwa = dane["dobor_sasiedztwa"];
 
     // Zamknij plik
     plik.close();

@@ -2,6 +2,10 @@ import json
 import tkinter as tk
 from tkinter import ttk
 
+#TODO: tylkko na potrzeby prezentacji
+import subprocess
+
+
 class GUI(tk.Tk):
     def __init__(self):
         self.data_to_save = {"liczba_iteracji": None,
@@ -74,10 +78,15 @@ class GUI(tk.Tk):
 
 
     def zapisz_wartosci_GUI(self):
-        self.data_to_save["liczba_iteracji"] = self.entry_liczba_iteracji.get()
-        self.data_to_save["kryterium_aspiracji"] = self.entry_kryterium_aspiracji.get()
-        self.data_to_save["dlugosc_listy_tabu"] = self.entry_dlugosc_listy_tabu.get()
-        self.data_to_save["dobor_sasiedztwa"] = self.wybierz_sasiedztwo()
+        try:
+            self.data_to_save["liczba_iteracji"] = int(self.entry_liczba_iteracji.get())
+            self.data_to_save["kryterium_aspiracji"] = int(self.entry_kryterium_aspiracji.get())
+            self.data_to_save["dlugosc_listy_tabu"] = int(self.entry_dlugosc_listy_tabu.get())
+            self.data_to_save["dobor_sasiedztwa"] = self.wybierz_sasiedztwo()
+        except ValueError:
+            print("To nie jest poprawna liczba całkowita.")
+
+
 
         print(self.data_to_save)
         self.save_data()
@@ -118,18 +127,30 @@ class GUI(tk.Tk):
 
 
     def wyswietl_wyniki_algorytmu(self):
-        try:
-            # Wczytaj dane z pliku JSON
-            with open('wynik.json', 'r') as plik_json:
-                dane = json.load(plik_json)
 
-            # random_zmienna = 1
-            # # Wyświetl wartość w etykiecie
-            # self.etykieta_wartosci.config(text="Wprowadzona wartość: {}".format(random_zmienna))
+        #TODO:tylko zeby zaprezentowac dzialanie
+        sciezka_do_exe = r'../cmake-build-debug/Hospitals.exe'
+        proces = subprocess.Popen(sciezka_do_exe, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        # Pobierz wyjście i błędy
+        wyjscie, bledy = proces.communicate()
+        # Wyświetl wyniki
+        print("Wyjście:\n")
+        print(wyjscie)
+        print("\nBłędy:")
+        print(bledy)
 
-        except Exception as e:
-            # Wyświetl wartość w etykiecie
-            self.etykieta_wartosci.config(text="Algorytm nie zostal uruchomiony (nie udalo sie odczytac wyniku)")
+        # try:
+        #     # Wczytaj dane z pliku JSON
+        #     with open('wynik.json', 'r') as plik_json:
+        #         dane = json.load(plik_json)
+        #
+        #     # random_zmienna = 1
+        #     # # Wyświetl wartość w etykiecie
+        #     # self.etykieta_wartosci.config(text="Wprowadzona wartość: {}".format(random_zmienna))
+        #
+        # except Exception as e:
+        #     # Wyświetl wartość w etykiecie
+        #     self.etykieta_wartosci.config(text="Algorytm nie zostal uruchomiony (nie udalo sie odczytac wyniku)")
 
 
 
