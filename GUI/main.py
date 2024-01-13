@@ -228,14 +228,13 @@ class GUI(tk.Tk):
         dane_x = [i for i in range(len(dane_y))]
 
         # Tworzenie figury Matplotlib
-        fig = Figure(figsize=(5, 4), dpi=100)
+        fig = Figure(figsize=(10, 8), dpi=100)
         wykres = fig.add_subplot(1, 1, 1)
         wykres.plot(dane_x, dane_y, label='Wartosci funkcji celu')
 
         wykres.set_title('Wartosci funkcji celu')
         wykres.set_xlabel('kolejne rozwiazania')
         wykres.set_ylabel('Wartość funkcji celu')
-        wykres.legend()
 
         # Konwersja figury na Tkinter PhotoImage
         canvas = FigureCanvasTkAgg(fig, master=self.karta2)

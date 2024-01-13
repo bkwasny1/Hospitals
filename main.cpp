@@ -20,8 +20,8 @@ int main() {
     czas_wykonania = 7;
     iteracja_z_najlepszym_wynikiem = 8;
 
-    wartosci_funkcji[1] = 5;
-    wartosci_funkcji[3] = 2;
+    wartosci_funkcji[1] = 0;
+    wartosci_funkcji[3] = 0;
     zapisz_dane();
 
 
