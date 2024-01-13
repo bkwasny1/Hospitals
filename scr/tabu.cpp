@@ -346,17 +346,54 @@ std::vector<Ambulance*> TabuSearch(){
     create_first_solution();
     //tu trzeba bedzie sprawdzic czy kopiuje czy bedzie sie zmienial razem z ambulacne list
     std::vector<Ambulance*> global_solution = ambulance_list;
-    std::vector<Ambulance*> solution = ambulance_list;
+    // tworzymy tyle rozwiazan, ile mamy opcji wyboru sasiedztwa
+    std::vector<Ambulance*> solution1, solution2, solution3, solution4;
+
     double cost = ObjectiveFunction(global_solution);
 
+
     for (int i = 0; i < MAX_ITER; i++){
-        //w tej funkcji od razu dodaje do tabu, zeby nie tworzyc kolejnych wskaznikow
-        NeighbourSelect(tabu_l, solution, CHOOSEN_NEIG);
-        double cost_temp = ObjectiveFunction(solution);
+
+        // stworz kopie ostatniego najlepszego rozwiazania
+        for (Ambulance *ambulance: global_solution) {
+            Ambulance *clonedAmbulance1 = new Ambulance(*ambulance);
+            Ambulance *clonedAmbulance2 = new Ambulance(*ambulance);
+            Ambulance *clonedAmbulance3 = new Ambulance(*ambulance);
+            Ambulance *clonedAmbulance4 = new Ambulance(*ambulance);
+            solution1.push_back(clonedAmbulance1);
+            solution2.push_back(clonedAmbulance2);
+            solution3.push_back(clonedAmbulance3);
+            solution4.push_back(clonedAmbulance4);
+        }
+
+
+        // stworz rozwiazania
+        NeighbourSelect(tabu_l, solution1, FIRST_NEIGH);
+        NeighbourSelect(tabu_l, solution2, SECOND_NEIGH);
+        NeighbourSelect(tabu_l, solution3, THIRD_NEIGH);
+        NeighbourSelect(tabu_l, solution4, FOURTH_NEIGH);
+
+        double cost_temp_solution1 = ObjectiveFunction(solution1);
+        double cost_temp_solution2 = ObjectiveFunction(solution2);
+        double cost_temp_solution3 = ObjectiveFunction(solution3);
+        double cost_temp_solution4 = ObjectiveFunction(solution4);
+
         if (cost_temp < cost){
             cost = cost_temp;
             global_solution = solution;
         }
+
+        //usun tymczasowe rozwiazania
+        for (int del = 0; del < global_solution.size(); del++){
+            delete solution1[del];
+            delete solution2[del];
+            delete solution3[del];
+            delete solution4[del];
+        }
+        solution1.clear();
+        solution2.clear();
+        solution3.clear();
+        solution4.clear();
     }
 
     return global_solution;
