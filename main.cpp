@@ -3,6 +3,8 @@
 #include <tabu.hpp>
 #include <cfloat>
 
+//pamietac o zmianie AMBULANCE_NUMBER
+
 //dane wejsciowe z GUI
 int max_liczba_iteracji;
 int kryterium_aspiracji;
@@ -16,7 +18,6 @@ int czas_wykonania;
 int iteracja_z_najlepszym_wynikiem;
 double najlepszy_wynik = DBL_MAX;
 int wartosci_funkcji[16];
-
 
 
 int Patient::pat_id = 0;

@@ -11,9 +11,9 @@
 #define FOURTH_NEIGH 4
 
 
-
 double cost = 0;
 int iteration = 0;
+int aspiration_on = 0;
 
 std::vector<std::string> specializations = {
         "Ortopedia",
@@ -241,6 +241,7 @@ double ObjectiveFunction(std::vector<Ambulance*> const &solution){
 
 //trzeba uzyc kilku sasiedztw naraz
 std::map<Ambulance*, int> NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choose_neigh){
+    aspiration_on = 0;
     std::map<Ambulance*, int> neigh_to_swap;
     switch(choose_neigh) {
         case FIRST_NEIGH: {
@@ -272,6 +273,7 @@ std::map<Ambulance*, int> NeighbourSelect(TabuList Tabu, std::vector<Ambulance*>
                         swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], swap_amp1_idx, swap_amp2_idx);
                         neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx1],swap_amp1_idx));
                         neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx2],swap_amp2_idx));
+                        aspiration_on = 1;
                         break;
                     }
                     else{
@@ -333,6 +335,7 @@ std::map<Ambulance*, int> NeighbourSelect(TabuList Tabu, std::vector<Ambulance*>
                         swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
                         neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx1],pat_idx1));
                         neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx2],pat_idx2));
+                        aspiration_on = 1;
                         break;
                     }
                     else{
@@ -383,6 +386,7 @@ std::map<Ambulance*, int> NeighbourSelect(TabuList Tabu, std::vector<Ambulance*>
                         swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
                         neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx1],pat_idx1));
                         neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx2],pat_idx2));
+                        aspiration_on = 1;
                         break;
                     }
                     else{
@@ -436,6 +440,7 @@ std::map<Ambulance*, int> NeighbourSelect(TabuList Tabu, std::vector<Ambulance*>
                             swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
                             neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx1],pat_idx1));
                             neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx2],pat_idx2));
+                            aspiration_on = 1;
                             break;
                         }
                         else{
@@ -482,6 +487,7 @@ std::map<Ambulance*, int> NeighbourSelect(TabuList Tabu, std::vector<Ambulance*>
                             swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
                             neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx1],pat_idx1));
                             neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx2],pat_idx2));
+                            aspiration_on = 1;
                             break;
                         }
                         else{
@@ -551,7 +557,11 @@ std::vector<Ambulance*> TabuSearch(){
 
     for (int i = 0; i < max_liczba_iteracji; i++){
         max_iteration++;
-
+        int aspiration_on1 = 0;
+        int aspiration_on2 = 0;
+        int aspiration_on3 = 0;
+        int aspiration_on4 = 0;
+        int final_aspiration;
         std::vector<int> pat_idx_to_swap1;
         std::vector<Ambulance*> amb_to_swap1;
         std::vector<int> pat_idx_to_swap2;
@@ -569,9 +579,13 @@ std::vector<Ambulance*> TabuSearch(){
 
         // 2. stworz nowe rozwiazania
         std::map<Ambulance*, int> swap_1 = NeighbourSelect(tabu_l, solution1, FIRST_NEIGH);
+        aspiration_on1 = aspiration_on;
         std::map<Ambulance*, int> swap_2 = NeighbourSelect(tabu_l, solution2, SECOND_NEIGH);
+        aspiration_on2 = aspiration_on;
         std::map<Ambulance*, int> swap_3 = NeighbourSelect(tabu_l, solution3, THIRD_NEIGH);
+        aspiration_on3 = aspiration_on;
         std::map<Ambulance*, int> swap_4 = NeighbourSelect(tabu_l, solution4, FOURTH_NEIGH);
+        aspiration_on4 = aspiration_on;
 
         for(auto & it : swap_1){
             amb_to_swap1.push_back(it.first);
@@ -607,22 +621,29 @@ std::vector<Ambulance*> TabuSearch(){
         // 5. wybierz najlepsze rozwiazanie w danej iteracji
         double najlniejsza_wartosc_funkcji = cost_temp_solution1;
         copy_ambulance_vector(solution1, global_solution);
+        final_aspiration = aspiration_on1;
 
         if (cost_temp_solution2 < najlniejsza_wartosc_funkcji) {
             najlniejsza_wartosc_funkcji = cost_temp_solution2;
             copy_ambulance_vector(solution2, global_solution);
+            final_aspiration = aspiration_on2;
         }
 
         if (cost_temp_solution3 < najlniejsza_wartosc_funkcji) {
             najlniejsza_wartosc_funkcji = cost_temp_solution3;
             copy_ambulance_vector(solution3, global_solution);
+            final_aspiration = aspiration_on3;
         }
 
         if (cost_temp_solution4 < najlniejsza_wartosc_funkcji) {
             najlniejsza_wartosc_funkcji = cost_temp_solution4;
             copy_ambulance_vector(solution4, global_solution);
+            final_aspiration = aspiration_on4;
         }
 
+        if (final_aspiration == 1){
+            liczba_uzyc_kryterium_aspiracji++;
+        }
 
         // 6. jezeli jest to najlepsze rozwiazanie, zapisz je do wyniku algorytmu
         if(najlepszy_wynik > najlniejsza_wartosc_funkcji){
