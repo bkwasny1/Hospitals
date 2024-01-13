@@ -20,6 +20,16 @@ class GUI(tk.Tk):
                            "optymalne_rozwiazanie": None,
                            "kolejne_wartosci_funkcji": None}
 
+        self.sciezka_do_exe = r'../cmake-build-debug/Hospitals.exe'
+        self.sciezka_do_wynikow = r'wyniki.json'
+
+        self.wartosci_funkcji =[]
+        self.liczba_iteracji = None
+        self.liczba_uzyc_kryt_aspiracji = None
+        self.czas_wykonania = None
+        self.iteracja_najlepszy_wynik = None
+        self.optymalne_rozwiazanie = None
+
         #frontend
         super().__init__()
         self.title("Algorytm TS") # Ustawienie tytułu okna
@@ -73,23 +83,33 @@ class GUI(tk.Tk):
         self.combobox_dobor_sasiedztwa.grid(row=4, column=0, padx=10, pady=10)
 
 
-        self.przycisk_karta1 = tk.Button(self.karta1, text="Zapisz", command=self.zapisz_wartosci_GUI)
+        self.przycisk_karta1 = tk.Button(self.karta1, text="Zapisz", command=self.uruchom_algorytm)
         self.przycisk_karta1.grid(row=50, column=0, padx=10, pady=10)
 
 
-    def zapisz_wartosci_GUI(self):
+    def uruchom_algorytm(self):
+        # 1. zapisz dane
         try:
             self.data_to_save["liczba_iteracji"] = int(self.entry_liczba_iteracji.get())
             self.data_to_save["kryterium_aspiracji"] = int(self.entry_kryterium_aspiracji.get())
             self.data_to_save["dlugosc_listy_tabu"] = int(self.entry_dlugosc_listy_tabu.get())
             self.data_to_save["dobor_sasiedztwa"] = self.wybierz_sasiedztwo()
+            self.save_data()
         except ValueError:
             print("To nie jest poprawna liczba całkowita.")
 
-
-
         print(self.data_to_save)
-        self.save_data()
+
+        # 2. uruchom algorytm
+        self.run_exe()
+
+        # 3. wczytaj wyniki
+        self.wczytaj_wyniki()
+
+        # 4. wyswietl wyniki
+        self.wyswietl_wyniki()
+
+
 
 
     def wybierz_sasiedztwo(self):
@@ -109,28 +129,62 @@ class GUI(tk.Tk):
 
 
     def utworz_zakladke_wyniku(self):
-        self.karta2 = tk.Frame(self.notebook)
+        # Dodaj pole z iloscia iteracji
+        self.ramka = tk.Frame(self.karta1, bd=1, relief=tk.GROOVE)
+        self.ramka.grid(row=0, column=151, padx=10, pady=10)
+        #napis
+        self.napis_iteracje = tk.Label(self.ramka, text="liczba iteracji")
+        self.napis_iteracje.grid(padx=10)
+        #wartosc
+        self.etykieta_liczba_iteracji = tk.IntVar()
+        self.etykieta_liczba_iteracji.set(self.liczba_iteracji)
+        self.wartosc_etykiety = tk.Label(self.ramka, textvariable=self.etykieta_liczba_iteracji)
+        self.wartosc_etykiety.grid(row=0, column=151, padx=10)
 
-        # Utwórz zmienną do przechowywania wartości wprowadzonej przez użytkownika
-        self.wartosc_var = tk.StringVar()
+        # liczba uzyc kryt aspiracji
+        self.ramka_aspiracje = tk.Frame(self.karta1, bd=1, relief=tk.GROOVE)
+        self.ramka_aspiracje.grid(row=1, column=151, padx=10, pady=10)
+        #napis
+        self.napis_aspiracje = tk.Label(self.ramka_aspiracje, text="liczba uzyc kryt aspiracji")
+        self.napis_aspiracje.grid(padx=10)
+        #wartosc
+        self.etykieta_liczba_aspiracji = tk.IntVar()
+        self.etykieta_liczba_aspiracji.set(self.liczba_uzyc_kryt_aspiracji)
+        self.wartosc_etykiety_aspiracji = tk.Label(self.ramka_aspiracje, textvariable=self.etykieta_liczba_aspiracji)
+        self.wartosc_etykiety_aspiracji.grid(row=0, column=2, padx=10)
 
-        # Dodaj pole tekstowe
-        # Etykieta do wyświetlania wartości
-        self.etykieta_wartosci = tk.Label(self.karta2, text="123")
-        self.etykieta_wartosci.pack(padx=10, pady=10)
+        # czas_wykonania
+        self.ramka_czas_wykonania = tk.Frame(self.karta1, bd=1, relief=tk.GROOVE)
+        self.ramka_czas_wykonania.grid(row=2, column=151, padx=10, pady=10)
+        #napis
+        self.napis_czas_wykonania = tk.Label(self.ramka_czas_wykonania, text="czas wykonania")
+        self.napis_czas_wykonania.grid(padx=10)
+        #wartosc
+        self.etykieta_czas_wykonania = tk.IntVar()
+        self.etykieta_czas_wykonania.set(self.czas_wykonania)
+        self.wartosc_etykiety_czasu = tk.Label(self.ramka_czas_wykonania, textvariable=self.etykieta_czas_wykonania)
+        self.wartosc_etykiety_czasu.grid(row=0, column=2, padx=10)
 
-        # Dodaj przycisk do wywołania funkcji po naciśnięciu
-        self.przycisk_wyswietlania = tk.Button(self.karta2, text="Wyswietl Wartosc", command=self.wyswietl_wyniki_algorytmu)
-        self.przycisk_wyswietlania.pack(padx=10, pady=10)
+        # iteracja z najlepszym wynikiem
+        self.ramka_najlepszy_wynik = tk.Frame(self.karta1, bd=1, relief=tk.GROOVE)
+        self.ramka_najlepszy_wynik.grid(row=3, column=151, padx=10, pady=10)
+        #napis
+        self.napis_najlepszy_wynik = tk.Label(self.ramka_najlepszy_wynik, text="iteracja z najlepszym wynikiem")
+        self.napis_najlepszy_wynik.grid(padx=10)
+        #wartosc
+        self.etykieta_najlepszy_wynik = tk.IntVar()
+        self.etykieta_najlepszy_wynik.set(self.iteracja_najlepszy_wynik)
+        self.wartosc_najlepszy_wynik = tk.Label(self.ramka_najlepszy_wynik, textvariable=self.etykieta_najlepszy_wynik)
+        self.wartosc_najlepszy_wynik.grid(row=0, column=2, padx=10)
 
-        self.notebook.add(self.karta2, text="wyniki")
+        # optymalne_rozwiazanie
+        # wykres przebiegu
 
 
-    def wyswietl_wyniki_algorytmu(self):
+    def run_exe(self):
 
         #TODO:tylko zeby zaprezentowac dzialanie
-        sciezka_do_exe = r'../cmake-build-debug/Hospitals.exe'
-        proces = subprocess.Popen(sciezka_do_exe, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        proces = subprocess.Popen(self.sciezka_do_exe, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         # Pobierz wyjście i błędy
         wyjscie, bledy = proces.communicate()
         # Wyświetl wyniki
@@ -139,19 +193,31 @@ class GUI(tk.Tk):
         print("\nBłędy:")
         print(bledy)
 
-        # try:
-        #     # Wczytaj dane z pliku JSON
-        #     with open('wynik.json', 'r') as plik_json:
-        #         dane = json.load(plik_json)
-        #
-        #     # random_zmienna = 1
-        #     # # Wyświetl wartość w etykiecie
-        #     # self.etykieta_wartosci.config(text="Wprowadzona wartość: {}".format(random_zmienna))
-        #
-        # except Exception as e:
-        #     # Wyświetl wartość w etykiecie
-        #     self.etykieta_wartosci.config(text="Algorytm nie zostal uruchomiony (nie udalo sie odczytac wyniku)")
 
+    def wczytaj_wyniki(self):
+        try:
+            # Wczytaj dane z pliku JSON
+            with open(self.sciezka_do_wynikow, 'r') as plik_json:
+                dane = json.load(plik_json)
+
+            self.wartosci_funkcji = dane["wartosci_funkcji"]
+            self.liczba_iteracji = dane["liczba_iteracji"]
+            self.liczba_uzyc_kryt_aspiracji = dane["liczba_uzyc_kryt_aspiracji"]
+            self.czas_wykonania = dane["czas_wykonania"]
+            self.iteracja_najlepszy_wynik = dane["iteracja_najlepszy_wynik"]
+            self.optymalne_rozwiazanie = dane["optymalne_rozwiazanie"]
+
+
+        except Exception as e:
+            # Wyświetl wartość w etykiecie
+            self.etykieta_wartosci.config(text="Algorytm nie zostal uruchomiony (nie udalo sie odczytac wyniku)")
+
+
+    def wyswietl_wyniki(self):
+        self.etykieta_liczba_iteracji.set(self.liczba_iteracji)
+        self.etykieta_liczba_aspiracji.set(self.liczba_uzyc_kryt_aspiracji)
+        self.etykieta_czas_wykonania.set(self.czas_wykonania)
+        self.etykieta_najlepszy_wynik.set(self.iteracja_najlepszy_wynik)
 
 
 if __name__ == "__main__":

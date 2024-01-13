@@ -1,0 +1,8 @@
+{
+  "wartosci_funkcji": [1, 5, 3, 4, 5, 2, 3, 4, 5, 8, 9, 9, 9, 9, 9, 9],
+  "liczba_iteracji": 15,
+  "liczba_uzyc_kryt_aspiracji": 5,
+  "czas_wykonania": 14,
+  "iteracja_najlepszy_wynik": 3,
+  "optymalne_rozwiazanie": [["karetka1", [1, 2]], ["karetka2", [1]]]
+}
