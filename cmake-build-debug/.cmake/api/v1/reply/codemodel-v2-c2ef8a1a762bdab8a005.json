@@ -9,7 +9,7 @@
 					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.27"
+						"string" : "3.21"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Hospitals::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Hospitals-Debug-022b658ad6c03a89d3c4.json",
+					"jsonFile" : "target-Hospitals-Debug-d5518e857ab8f746c323.json",
 					"name" : "Hospitals",
 					"projectIndex" : 0
 				}
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals/cmake-build-debug",
-		"source" : "G:/Program Files/semestr5/Badania operacyjne 2/Projekt/Hospitals"
+		"build" : "D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug",
+		"source" : "D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 6
+		"minor" : 3
 	}
 }
