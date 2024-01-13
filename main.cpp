@@ -1,9 +1,10 @@
 #include "window.hpp"
 #include <iostream>
 #include <tabu.hpp>
+#include <cfloat>
 
 //dane wejsciowe z GUI
-int max_liczba_iteracji;
+int max_liczba_iteracji = 1000;
 int kryterium_aspiracji;
 int dlugosc_listy_tabu;
 int dobor_sasiedztwa;
@@ -13,6 +14,7 @@ int act_liczba_iteracji;
 int liczba_uzyc_kryterium_aspiracji;
 int czas_wykonania;
 int iteracja_z_najlepszym_wynikiem;
+double najlepszy_wynik = DBL_MAX;
 int wartosci_funkcji[16];
 
 
@@ -59,32 +61,28 @@ int main(){
 
     Hospital hos_1(0,  0 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
     Hospital hos_2(1,  1 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Hospital hos_3(2,  2 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+
+    hospital_list.push_back(&hos_1);
+    hospital_list.push_back(&hos_2);
+    hospital_list.push_back(&hos_3);
 
     Ambulance ambulance_1(&hos_1);
     Ambulance ambulance_2(&hos_2);
+    Ambulance ambulance_3(&hos_3);
 
-    Patient pat_1(0,0,0,0, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_2(1,1,1,0, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_1(0,6,3,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_2(1,1,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_3(0,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_4(0,3,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_5(1,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
 
-    ambulance_1.add_patient(&pat_1);
-    ambulance_2.add_patient(&pat_2);
+    patients_list.push_back(&pat_1);
+    patients_list.push_back(&pat_2);
+    patients_list.push_back(&pat_3);
+    patients_list.push_back(&pat_4);
+    patients_list.push_back(&pat_5);
 
-    std::vector<Ambulance*> global_solution = {&ambulance_1, &ambulance_2};
-    std::vector<Ambulance*> solution;
-    for(int i = 0; i < 50000; i++) {
-        for (Ambulance *ambulance: global_solution) {
-            // Wywołaj konstruktor kopiujący lub klonujący obiekt Ambulance
-            Ambulance *clonedAmbulance = new Ambulance(*ambulance);
-            solution.push_back(clonedAmbulance);
-        }
-
-        //    NeighbourSelect(ambulance_1, ambulance_2, solution);
-        swap1(*solution[0], *solution[1], 0, 0);
-
-        for (Ambulance *clonedAmbulance: solution) {
-            delete clonedAmbulance;
-        }
-        solution.clear();
-    }
+    TabuSearch();
     return 0;
 }
