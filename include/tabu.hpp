@@ -30,6 +30,24 @@ private:
     int save_index = 0;
 };
 
+void copy_ambulance_vector(std::vector<Ambulance*> orginal, std::vector<Ambulance*>& copy);
+
+std::vector<Ambulance*> TabuSearch();
+
+extern int max_liczba_iteracji;
+
+extern double najlepszy_wynik;
+
+//lista wszsystkich szpitali, trzeba ja kiedys stworzyc
+extern std::vector<Hospital*> hospital_list;
+
+//lista wszystkich pacjentow
+extern std::vector<Patient*> patients_list;
+
+//lista wszystkich karetek
+extern std::vector<Ambulance*> ambulance_list;
+
+
 #endif //HOSPITALS_TABU_HPP
 
 
