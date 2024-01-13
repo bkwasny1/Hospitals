@@ -47,6 +47,7 @@ extern std::vector<Patient*> patients_list;
 //lista wszystkich karetek
 extern std::vector<Ambulance*> ambulance_list;
 
+
 #endif //HOSPITALS_TABU_HPP
 
 
