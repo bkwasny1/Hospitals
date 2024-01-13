@@ -3,6 +3,8 @@
 #include <tabu.hpp>
 #include <cfloat>
 
+//pamietac o zmianie AMBULANCE_NUMBER
+
 //dane wejsciowe z GUI
 int max_liczba_iteracji = 10000;
 int kryterium_aspiracji;
@@ -16,7 +18,6 @@ int czas_wykonania;
 int iteracja_z_najlepszym_wynikiem;
 double najlepszy_wynik = DBL_MAX;
 int wartosci_funkcji[16];
-
 
 
 int Patient::pat_id = 0;
@@ -86,7 +87,8 @@ int main(){
     std::map<Ambulance*, int> neigh_to_swap;
     neigh_to_swap.insert(std::make_pair(&ambulance_1,1));
     neigh_to_swap.insert(std::make_pair(&ambulance_2,2));
-    
+
+
     TabuSearch();
     return 0;
 }
