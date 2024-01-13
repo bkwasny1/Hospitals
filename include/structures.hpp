@@ -13,7 +13,6 @@
 #define AMBULANCE_NUMBER 5
 #define PATIENTS_NUMBER 20
 
-
 //definicja struktur
 struct Point {
     int x, y, distance;
@@ -124,6 +123,7 @@ public:
     void change_hospital(Hospital* new_hospital) {
         actual_hospital_ = new_hospital;
     }
+
 
 private:
     int id;

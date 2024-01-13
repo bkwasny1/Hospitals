@@ -16,6 +16,7 @@
 
 
 double cost = 0;
+int iteration = 0;
 
 std::vector<std::string> specializations = {
         "Ortopedia",
@@ -210,7 +211,7 @@ void swap(Ambulance &amb1, Ambulance &amb2, int patient1_idx, int patient2_idx) 
 1 - wymiana zawsze pierwszych z wolnych pacjentow miedzy losowymi karetkami
 2 - wymiana losowych dostępnych pacjentów między losowymi karetkami
 3 - przerzucenie pacjenta
-4 - losowa zamiana
+4 - co x iteracje przerzuca pacjenta, tak to zamienia losowo
 
 */
 
@@ -266,14 +267,15 @@ void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choos
             std::map<Ambulance, int> pair2 = {{*solutions[ambulance_idx2], pat2_id}};
 
             while (Tabu.check_if_in_tabu(pair1, pair2)){
-                swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], swap_amp1_idx, swap_amp2_idx);
-                if (cost - ObjectiveFunction(solutions) >  ASPIRATION){
-                    apiration_usage_counter++;
-                    break;
-                }
-                else{
+                if (ASPIRATION != 0){
                     swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], swap_amp1_idx, swap_amp2_idx);
-                }
+                    if (cost - ObjectiveFunction(solutions) >  ASPIRATION){
+                        apiration_usage_counter++;
+                        break;
+                    }
+                    else{
+                        swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], swap_amp1_idx, swap_amp2_idx);
+                    }}
                 if (order1[swap_amp1_idx + 1] != nullptr){
                     swap_amp1_idx++;
                     pat1_id = order1[swap_amp1_idx] -> get_patient_id();
@@ -322,14 +324,15 @@ void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choos
                 std::map<Ambulance, int> pair1 = {{*solutions[ambulance_idx1], pat_idx1}};
                 std::map<Ambulance, int> pair2 = {{*solutions[ambulance_idx2], pat_idx2}};
 
-                swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
-                if (Tabu.check_if_in_tabu(pair1, pair2) && (cost - ObjectiveFunction(solutions)) > ASPIRATION){
-                    apiration_usage_counter++;
-                    break;
-                }
-                else{
+                if (ASPIRATION != 0){
                     swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
-                }
+                    if (Tabu.check_if_in_tabu(pair1, pair2) && (cost - ObjectiveFunction(solutions)) > ASPIRATION){
+                        apiration_usage_counter++;
+                        break;
+                    }
+                    else{
+                        swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
+                    }}
                 if(!Tabu.check_if_in_tabu(pair1, pair2)){
                     swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
                     break;
@@ -343,34 +346,134 @@ void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choos
 
         case THIRD_NEIGH:{
             srand(time(nullptr));
-            int counter = 0;
-            int ambulance_idx1 = rand() % AMBULANCE_NUMBER;   //wybór losowej kareteki z której bedzie usuwany pacjent
-            int ambulance_idx2 = rand() % AMBULANCE_NUMBER;   //wybór losowej karetki do której bedzie dodawany pacjent
+            int ambulance_idx1;
+            int ambulance_idx2;
 
-            int numb_of_pat_idx1 = solutions[ambulance_idx1]->get_patient_count();  //liczba pacjentów dla wybranej losowo karetki z której będzie usuwany pacjent
+            int pat_idx1;  //wybór losowych pacjentów dla wybranych losowo karetek
+            int pat_idx2;
 
-            int pat_idx1 = rand() % numb_of_pat_idx1;  //losowy wybór pacjenta do usunięcia
+            std::map<Ambulance, int> pair1;
+            std::map<Ambulance, int> pair2;
 
-
-            while (ambulance_idx2 == ambulance_idx1) {
+            while(true){
+                ambulance_idx1 = rand() % AMBULANCE_NUMBER;   //wybór losowych karetek
                 ambulance_idx2 = rand() % AMBULANCE_NUMBER;
-                counter++;
 
+                while (ambulance_idx2 == ambulance_idx1) {
+                    ambulance_idx2 = rand() % AMBULANCE_NUMBER;
+                }
+
+
+                pat_idx1 = solutions[ambulance_idx1]->get_patient_count() - 1;
+                pat_idx2 = solutions[ambulance_idx2]->get_patient_count();
+
+                std::map<Ambulance, int> pair1 = {{*solutions[ambulance_idx1], pat_idx1}};
+                std::map<Ambulance, int> pair2 = {{*solutions[ambulance_idx2], pat_idx2}};
+
+                if (ASPIRATION != 0){
+                    swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
+                    if (Tabu.check_if_in_tabu(pair1, pair2) && (cost - ObjectiveFunction(solutions)) > ASPIRATION){
+                        apiration_usage_counter++;
+                        break;
+                    }
+                    else{
+                        swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
+                    }}
+                if(!Tabu.check_if_in_tabu(pair1, pair2)){
+                    swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
+                    break;
+                }
             }
-
-            std::vector<Patient*> order1 = solutions[ambulance_idx1]->get_order();
-            std::vector<Patient*> order2 = solutions[ambulance_idx2]->get_order();
-
-            solutions[ambulance_idx2]->add_patient(order1[pat_idx1]);
-
-            order1.erase(order1.cbegin()+pat_idx1);
-
-            //Trzeba wymyslic jak w tym sąsiedztwie dodawać to listy tabu  i sprawdzanie czy zabronienie jest w tabu liscie
-
-
             break;
         }
         case FOURTH_NEIGH:{
+            if (iteration % 20 == 0){
+                srand(time(nullptr));
+                int ambulance_idx1;
+                int ambulance_idx2;
+
+                int numb_of_pat_idx1;  //liczba pacjentów dla wybranych losowo karetek
+                int numb_of_pat_idx2;
+
+                int pat_idx1;  //wybór losowych pacjentów dla wybranych losowo karetek
+                int pat_idx2;
+
+                std::map<Ambulance, int> pair1;
+                std::map<Ambulance, int> pair2;
+
+                while(true){
+                    ambulance_idx1 = rand() % AMBULANCE_NUMBER;   //wybór losowych karetek
+                    ambulance_idx2 = rand() % AMBULANCE_NUMBER;
+
+                    while (ambulance_idx2 == ambulance_idx1) {
+                        ambulance_idx2 = rand() % AMBULANCE_NUMBER;
+                    }
+
+                    numb_of_pat_idx1 = solutions[ambulance_idx1]->get_patient_count();  //liczba pacjentów dla wybranych losowo karetek
+                    numb_of_pat_idx2 = solutions[ambulance_idx2]->get_patient_count();
+
+                    pat_idx1 = rand() % numb_of_pat_idx1;  //wybór losowych pacjentów dla wybranych losowo karetek
+                    pat_idx2 = rand() % numb_of_pat_idx2;
+
+                    std::map<Ambulance, int> pair1 = {{*solutions[ambulance_idx1], pat_idx1}};
+                    std::map<Ambulance, int> pair2 = {{*solutions[ambulance_idx2], pat_idx2}};
+
+                    if (ASPIRATION != 0){
+                        swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
+                        if (Tabu.check_if_in_tabu(pair1, pair2) && (cost - ObjectiveFunction(solutions)) > ASPIRATION){
+                            apiration_usage_counter++;
+                            break;
+                        }
+                        else{
+                            swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
+                        }}
+                    if(!Tabu.check_if_in_tabu(pair1, pair2)){
+                        swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
+                        break;
+                    }
+                }
+            }
+            else{
+                srand(time(nullptr));
+                int ambulance_idx1;
+                int ambulance_idx2;
+
+                int pat_idx1;  //wybór losowych pacjentów dla wybranych losowo karetek
+                int pat_idx2;
+
+                std::map<Ambulance, int> pair1;
+                std::map<Ambulance, int> pair2;
+
+                while(true){
+                    ambulance_idx1 = rand() % AMBULANCE_NUMBER;   //wybór losowych karetek
+                    ambulance_idx2 = rand() % AMBULANCE_NUMBER;
+
+                    while (ambulance_idx2 == ambulance_idx1) {
+                        ambulance_idx2 = rand() % AMBULANCE_NUMBER;
+                    }
+
+
+                    pat_idx1 = solutions[ambulance_idx1]->get_patient_count() - 1;
+                    pat_idx2 = solutions[ambulance_idx2]->get_patient_count();
+
+                    std::map<Ambulance, int> pair1 = {{*solutions[ambulance_idx1], pat_idx1}};
+                    std::map<Ambulance, int> pair2 = {{*solutions[ambulance_idx2], pat_idx2}};
+
+                    if (ASPIRATION != 0){
+                        swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
+                        if (Tabu.check_if_in_tabu(pair1, pair2) && (cost - ObjectiveFunction(solutions)) > ASPIRATION){
+                            apiration_usage_counter++;
+                            break;
+                        }
+                        else{
+                            swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
+                        }}
+                    if(!Tabu.check_if_in_tabu(pair1, pair2)){
+                        swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
+                        break;
+                    }
+                }
+            }
             break;
         }
         default:
