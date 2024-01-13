@@ -552,6 +552,14 @@ std::vector<Ambulance*> TabuSearch(){
     std::vector<Ambulance*> solution1, solution2, solution3, solution4;
 
     for (int i = 0; i < max_liczba_iteracji; i++){
+        std::vector<int> pat_idx_to_swap1;
+        std::vector<Ambulance*> amb_to_swap1;
+        std::vector<int> pat_idx_to_swap2;
+        std::vector<Ambulance*> amb_to_swap2;
+        std::vector<int> pat_idx_to_swap3;
+        std::vector<Ambulance*> amb_to_swap3;
+        std::vector<int> pat_idx_to_swap4;
+        std::vector<Ambulance*> amb_to_swap4;
 
         // 1. stworz kopie ostatniego najlepszego rozwiazania
         copy_ambulance_vector(global_solution, solution1);
@@ -560,17 +568,41 @@ std::vector<Ambulance*> TabuSearch(){
         copy_ambulance_vector(global_solution, solution4);
 
         // 2. stworz nowe rozwiazania
-//        NeighbourSelect(tabu_l, solution1, FIRST_NEIGH);
-//        NeighbourSelect(tabu_l, solution2, SECOND_NEIGH);
-//        NeighbourSelect(tabu_l, solution3, THIRD_NEIGH);
-//        NeighbourSelect(tabu_l, solution4, FOURTH_NEIGH);
+        std::map<Ambulance*, int> swap_1 = NeighbourSelect(tabu_l, solution1, FIRST_NEIGH);
+        std::map<Ambulance*, int> swap_2 = NeighbourSelect(tabu_l, solution2, SECOND_NEIGH);
+        std::map<Ambulance*, int> swap_3 = NeighbourSelect(tabu_l, solution3, THIRD_NEIGH);
+        std::map<Ambulance*, int> swap_4 = NeighbourSelect(tabu_l, solution4, FOURTH_NEIGH);
+
+        for(auto & it : swap_1){
+            amb_to_swap1.push_back(it.first);
+            pat_idx_to_swap1.push_back(it.second);
+        }
+
+        for(auto & it : swap_2){
+            amb_to_swap2.push_back(it.first);
+            pat_idx_to_swap2.push_back(it.second);
+        }
+
+        for(auto & it : swap_3){
+            amb_to_swap3.push_back(it.first);
+            pat_idx_to_swap3.push_back(it.second);
+        }
+
+        for(auto & it : swap_4){
+            amb_to_swap4.push_back(it.first);
+            pat_idx_to_swap4.push_back(it.second);
+        }
+
+        swap(*amb_to_swap1[0], *amb_to_swap1[1], pat_idx_to_swap1[0], pat_idx_to_swap1[1]);
+        swap(*amb_to_swap2[0], *amb_to_swap2[1], pat_idx_to_swap2[0], pat_idx_to_swap2[1]);
+        swap(*amb_to_swap3[0], *amb_to_swap3[1], pat_idx_to_swap3[0], pat_idx_to_swap3[1]);
+        swap(*amb_to_swap4[0], *amb_to_swap4[1], pat_idx_to_swap4[0], pat_idx_to_swap4[1]);
 
         // 3. oblicz wartosci funkcji celu
         double cost_temp_solution1 = ObjectiveFunction(solution1);
         double cost_temp_solution2 = ObjectiveFunction(solution2);
         double cost_temp_solution3 = ObjectiveFunction(solution3);
         double cost_temp_solution4 = ObjectiveFunction(solution4);
-
 
         // 5. wybierz najlepsze rozwiazanie w danej iteracji
         double najlniejsza_wartosc_funkcji = cost_temp_solution1;
