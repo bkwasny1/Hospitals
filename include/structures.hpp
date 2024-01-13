@@ -88,18 +88,12 @@ public:
         amb_id++;
     }
 
-    Ambulance(const Ambulance& other) : id(other.id), actual_hospital_(other.actual_hospital_){
+    Ambulance(const Ambulance& other) : id(other.id), actual_hospital_(other.actual_hospital_), patient_count(other.patient_count){
         for(Patient* patient : other.order_){
-            order_.push_back(new Patient(*patient));
-        }
-
-    }
-
-    ~Ambulance(){
-        for (Patient* patient : order_){
-            delete patient;
+            order_.push_back(patient);
         }
     }
+
     //dodanie operatorow porownania
     bool operator==(const Ambulance& other)const{
         return id == other.id;
@@ -116,6 +110,8 @@ public:
 
     std::vector<Patient*> get_order(){return order_;};
 
+//zwraca ilosc pacjentów
+    int get_patient_count(){return patient_count;};
 
     void new_order(std::vector<Patient*> ord){order_ = std::move(ord);}
 
