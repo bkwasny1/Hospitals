@@ -4,13 +4,13 @@
 #include <cfloat>
 
 //dane wejsciowe z GUI
-int max_liczba_iteracji = 10000;
+int max_liczba_iteracji;
 int kryterium_aspiracji;
 int dlugosc_listy_tabu;
 int dobor_sasiedztwa;
 
 //dane wyjsciowe do GUI
-int act_liczba_iteracji;
+int act_liczba_iteracji = 0;
 int liczba_uzyc_kryterium_aspiracji;
 int czas_wykonania;
 int iteracja_z_najlepszym_wynikiem;
@@ -44,49 +44,51 @@ void NeighbourSelect(Ambulance &amb1, Ambulance &amb2, std::vector<Ambulance> so
 
 
 int main(){
-    std::vector<std::string> specializations= {
-            "Ortopedia",
-            "Okulistyka",
-            "Neurologia",
-            "Chirurgia",
-            "Kardiologia",
-            "Pediatria",
-            "Endokrynologia",
-            "Geriatria",
-            "Ginekologia",
-            "Urologia",
-            "Psychiatria",
-            "Oparzenia",
-            "Gastroenterologia"};
-
-    Hospital hos_1(0,  0 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Hospital hos_2(1,  1 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Hospital hos_3(2,  2 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-
-    hospital_list.push_back(&hos_1);
-    hospital_list.push_back(&hos_2);
-    hospital_list.push_back(&hos_3);
-
-    Ambulance ambulance_1(&hos_1);
-    Ambulance ambulance_2(&hos_2);
-    Ambulance ambulance_3(&hos_3);
-
-    Patient pat_1(0,6,3,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_2(1,1,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_3(0,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_4(0,3,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_5(1,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-
-    patients_list.push_back(&pat_1);
-    patients_list.push_back(&pat_2);
-    patients_list.push_back(&pat_3);
-    patients_list.push_back(&pat_4);
-    patients_list.push_back(&pat_5);
-
-    std::map<Ambulance*, int> neigh_to_swap;
-    neigh_to_swap.insert(std::make_pair(&ambulance_1,1));
-    neigh_to_swap.insert(std::make_pair(&ambulance_2,2));
-    
-    TabuSearch();
+//    std::vector<std::string> specializations= {
+//            "Ortopedia",
+//            "Okulistyka",
+//            "Neurologia",
+//            "Chirurgia",
+//            "Kardiologia",
+//            "Pediatria",
+//            "Endokrynologia",
+//            "Geriatria",
+//            "Ginekologia",
+//            "Urologia",
+//            "Psychiatria",
+//            "Oparzenia",
+//            "Gastroenterologia"};
+//
+//    Hospital hos_1(0,  0 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+//    Hospital hos_2(1,  1 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+//    Hospital hos_3(2,  2 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+//
+//    hospital_list.push_back(&hos_1);
+//    hospital_list.push_back(&hos_2);
+//    hospital_list.push_back(&hos_3);
+//
+//    Ambulance ambulance_1(&hos_1);
+//    Ambulance ambulance_2(&hos_2);
+//    Ambulance ambulance_3(&hos_3);
+//
+//    Patient pat_1(0,6,3,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+//    Patient pat_2(1,1,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+//    Patient pat_3(0,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+//    Patient pat_4(0,3,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+//    Patient pat_5(1,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+//
+//    patients_list.push_back(&pat_1);
+//    patients_list.push_back(&pat_2);
+//    patients_list.push_back(&pat_3);
+//    patients_list.push_back(&pat_4);
+//    patients_list.push_back(&pat_5);
+//
+//    std::map<Ambulance*, int> neigh_to_swap;
+//    neigh_to_swap.insert(std::make_pair(&ambulance_1,1));
+//    neigh_to_swap.insert(std::make_pair(&ambulance_2,2));
+//
+//    TabuSearch();
+    wczytaj_dane();
+    test_zmiennych_z_gui();
     return 0;
 }

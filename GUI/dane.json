@@ -1,1 +1,1 @@
-{"max_liczba_iteracji": 3, "kryterium_aspiracji": 5, "dlugosc_listy_tabu": 4, "dobor_sasiedztwa": 1}
+{"max_liczba_iteracji": 1, "kryterium_aspiracji": 1, "dlugosc_listy_tabu": 1, "dobor_sasiedztwa": 1}

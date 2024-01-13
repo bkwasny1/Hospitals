@@ -1,10 +1,6 @@
 #ifndef HOSPITALS_TABU_HPP
 #define HOSPITALS_TABU_HPP
 
-#define Neigbour_mode 1
-#define SIZE_ 5
-#define TABU_SIZE 5
-
 #include "structures.hpp"
 #include <map>
 #include <utility>
@@ -34,7 +30,13 @@ void copy_ambulance_vector(std::vector<Ambulance*> orginal, std::vector<Ambulanc
 
 std::vector<Ambulance*> TabuSearch();
 
+void test_zmiennych_z_gui();
+
+//zmienne uzywane w tabu
 extern int max_liczba_iteracji;
+extern int kryterium_aspiracji;
+extern int dlugosc_listy_tabu;
+extern int dobor_sasiedztwa;
 
 extern double najlepszy_wynik;
 
