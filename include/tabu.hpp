@@ -30,8 +30,6 @@ private:
     int save_index = 0;
 };
 
-std::vector<Ambulance*> TabuSearch();
-
 #endif //HOSPITALS_TABU_HPP
 
 

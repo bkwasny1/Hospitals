@@ -1,3 +1,0 @@
-D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/CMakeFiles/Hospitals.dir
-D:/Semestr 5/Badania Operacyjne/Projekt/Hospitals/cmake-build-debug/CMakeFiles/rebuild_cache.dir
