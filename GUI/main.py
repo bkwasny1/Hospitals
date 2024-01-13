@@ -8,7 +8,7 @@ import subprocess
 
 class GUI(tk.Tk):
     def __init__(self):
-        self.data_to_save = {"liczba_iteracji": None,
+        self.data_to_save = {"max_liczba_iteracji": None,
                              "kryterium_aspiracji": None,
                              "dlugosc_listy_tabu": None,
                              "dobor_sasiedztwa": None} #dane zapisywane w .json
@@ -54,12 +54,12 @@ class GUI(tk.Tk):
 
 
     def dodaj_pola_karty1(self):
-        # liczba iteracji
-        self.label_liczba_iteracji = tk.Label(self.karta1, text="liczba iteracji")
-        self.label_liczba_iteracji.grid(row=0, column=1)  # Przesunięcie napisu
+        # max_liczba_iteracji
+        self.label_max_liczba_iteracji = tk.Label(self.karta1, text="maksymalna liczba iteracji")
+        self.label_max_liczba_iteracji.grid(row=0, column=1)  # Przesunięcie napisu
         # pole do wpisania wartosci
-        self.entry_liczba_iteracji = tk.Entry(self.karta1)
-        self.entry_liczba_iteracji.grid(row=0, column=0, padx=10, pady=10)
+        self.entry_max_liczba_iteracji = tk.Entry(self.karta1)
+        self.entry_max_liczba_iteracji.grid(row=0, column=0, padx=10, pady=10)
 
         # dlugosc listy tabu
         self.label_dlugosc_listy_tabu = tk.Label(self.karta1, text="dlugosc listy tabu")
@@ -90,7 +90,7 @@ class GUI(tk.Tk):
     def uruchom_algorytm(self):
         # 1. zapisz dane
         try:
-            self.data_to_save["liczba_iteracji"] = int(self.entry_liczba_iteracji.get())
+            self.data_to_save["max_liczba_iteracji"] = int(self.entry_max_liczba_iteracji.get())
             self.data_to_save["kryterium_aspiracji"] = int(self.entry_kryterium_aspiracji.get())
             self.data_to_save["dlugosc_listy_tabu"] = int(self.entry_dlugosc_listy_tabu.get())
             self.data_to_save["dobor_sasiedztwa"] = self.wybierz_sasiedztwo()
@@ -205,7 +205,7 @@ class GUI(tk.Tk):
             self.liczba_uzyc_kryt_aspiracji = dane["liczba_uzyc_kryt_aspiracji"]
             self.czas_wykonania = dane["czas_wykonania"]
             self.iteracja_najlepszy_wynik = dane["iteracja_najlepszy_wynik"]
-            self.optymalne_rozwiazanie = dane["optymalne_rozwiazanie"]
+            # self.optymalne_rozwiazanie = dane["optymalne_rozwiazanie"]
 
 
         except Exception as e:
@@ -218,6 +218,8 @@ class GUI(tk.Tk):
         self.etykieta_liczba_aspiracji.set(self.liczba_uzyc_kryt_aspiracji)
         self.etykieta_czas_wykonania.set(self.czas_wykonania)
         self.etykieta_najlepszy_wynik.set(self.iteracja_najlepszy_wynik)
+
+        print(self.wartosci_funkcji)
 
 
 if __name__ == "__main__":
