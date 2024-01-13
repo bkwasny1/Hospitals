@@ -536,20 +536,6 @@ void copy_ambulance_vector(std::vector<Ambulance*> orginal, std::vector<Ambulanc
     }
 }
 
-void copy_ambulance_vector(std::vector<Ambulance*> orginal, std::vector<Ambulance*>& copy){
-    // wyczysc wektor do ktorego kopiujemy
-    for (auto & del : copy){
-        delete del;
-    }
-    copy.clear();
-
-    // skoopiuj wartosci
-    for (Ambulance *ambulance: orginal) {
-        Ambulance *clonedAmbulance = new Ambulance(*ambulance);
-        copy.push_back(clonedAmbulance);
-    }
-}
-
 //algorytm tabu
 std::vector<Ambulance*> TabuSearch(){
     //tworzenie tabu listy
@@ -562,7 +548,12 @@ std::vector<Ambulance*> TabuSearch(){
     // tworzymy tyle rozwiazan, ile mamy opcji wyboru sasiedztwa
     std::vector<Ambulance*> solution1, solution2, solution3, solution4;
 
+    //liczba iteracji bez poprawy wyniku
+    int max_iteration = 0;
+
     for (int i = 0; i < max_liczba_iteracji; i++){
+        max_iteration++;
+
         std::vector<int> pat_idx_to_swap1;
         std::vector<Ambulance*> amb_to_swap1;
         std::vector<int> pat_idx_to_swap2;
@@ -642,6 +633,12 @@ std::vector<Ambulance*> TabuSearch(){
         }
 
         // 7. sprawdz czy przez ostatnie x iteracji byla poprawa (czy algorytm utknal?)
+        if(najlepszy_wynik == najlniejsza_wartosc_funkcji){
+            max_iteration++;
+        }
+        if(max_iteration == 1000){
+            return global_solution;
+        }
 
     }
 
