@@ -10,7 +10,6 @@
 #define THIRD_NEIGH 3
 #define FOURTH_NEIGH 4
 
-#define MAX_ITER 10000
 #define CHOOSEN_NEIG 1
 #define ASPIRATION 10000
 
@@ -537,9 +536,21 @@ void copy_ambulance_vector(std::vector<Ambulance*> orginal, std::vector<Ambulanc
     }
 }
 
+void copy_ambulance_vector(std::vector<Ambulance*> orginal, std::vector<Ambulance*>& copy){
+    // wyczysc wektor do ktorego kopiujemy
+    for (auto & del : copy){
+        delete del;
+    }
+    copy.clear();
+
+    // skoopiuj wartosci
+    for (Ambulance *ambulance: orginal) {
+        Ambulance *clonedAmbulance = new Ambulance(*ambulance);
+        copy.push_back(clonedAmbulance);
+    }
+}
 
 //algorytm tabu
-
 std::vector<Ambulance*> TabuSearch(){
     //tworzenie tabu listy
     TabuList tabu_l = TabuList(TABU_SIZE);
@@ -623,7 +634,7 @@ std::vector<Ambulance*> TabuSearch(){
             copy_ambulance_vector(solution4, global_solution);
         }
 
-        //std::cout << najlepszy_wynik << std::endl;
+
         // 6. jezeli jest to najlepsze rozwiazanie, zapisz je do wyniku algorytmu
         if(najlepszy_wynik > najlniejsza_wartosc_funkcji){
             copy_ambulance_vector(global_solution, ambulance_list);
@@ -631,7 +642,7 @@ std::vector<Ambulance*> TabuSearch(){
         }
 
         // 7. sprawdz czy przez ostatnie x iteracji byla poprawa (czy algorytm utknal?)
-        //std::cout << najlepszy_wynik << std::endl;
+
     }
 
     return global_solution;
