@@ -4,7 +4,6 @@
 #include <cfloat>
 
 //dane wejsciowe z GUI
-
 int max_liczba_iteracji = 10000;
 int kryterium_aspiracji;
 int dlugosc_listy_tabu;
@@ -84,6 +83,10 @@ int main(){
     patients_list.push_back(&pat_4);
     patients_list.push_back(&pat_5);
 
+    std::map<Ambulance*, int> neigh_to_swap;
+    neigh_to_swap.insert(std::make_pair(&ambulance_1,1));
+    neigh_to_swap.insert(std::make_pair(&ambulance_2,2));
+    
     TabuSearch();
     return 0;
 }
