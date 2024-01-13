@@ -1,6 +1,9 @@
 import json
 import tkinter as tk
 from tkinter import ttk
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import matplotlib.pyplot as plt
+from matplotlib.figure import Figure
 
 #TODO: tylkko na potrzeby prezentacji
 import subprocess
@@ -38,6 +41,7 @@ class GUI(tk.Tk):
         # Utwórz zakładki
         self.notebook = ttk.Notebook(self, padding=10)
         self.utworz_zakladke_zapisu_danych()
+        self.zakladka_dla_wykresu()
         self.utworz_zakladke_wyniku()
 
         # Wyświetl zakładki w pełnej szerokości i wysokości okna
@@ -51,6 +55,11 @@ class GUI(tk.Tk):
         self.karta1 = tk.Frame(self.notebook)
         self.dodaj_pola_karty1()
         self.notebook.add(self.karta1, text="Dane do algorytmu")
+
+
+    def zakladka_dla_wykresu(self):
+        self.karta2 = tk.Frame(self.notebook)
+        self.notebook.add(self.karta2, text="Wykres")
 
 
     def dodaj_pola_karty1(self):
@@ -213,13 +222,36 @@ class GUI(tk.Tk):
             self.etykieta_wartosci.config(text="Algorytm nie zostal uruchomiony (nie udalo sie odczytac wyniku)")
 
 
+    def rysuj_wykres(self):
+        # Dane do wykresu (przykładowe dane)
+        dane_y = self.wartosci_funkcji
+        dane_x = [i for i in range(len(dane_y))]
+
+        # Tworzenie figury Matplotlib
+        fig = Figure(figsize=(5, 4), dpi=100)
+        wykres = fig.add_subplot(1, 1, 1)
+        wykres.plot(dane_x, dane_y, label='Wartosci funkcji celu')
+
+        wykres.set_title('Wartosci funkcji celu')
+        wykres.set_xlabel('kolejne rozwiazania')
+        wykres.set_ylabel('Wartość funkcji celu')
+        wykres.legend()
+
+        # Konwersja figury na Tkinter PhotoImage
+        canvas = FigureCanvasTkAgg(fig, master=self.karta2)
+        canvas_widget = canvas.get_tk_widget()
+
+        # Umiejscowienie widgetu Canvas w oknie Tkinter
+        canvas_widget.grid(row=0, column=200, padx=10, pady=10)
+
+
     def wyswietl_wyniki(self):
         self.etykieta_liczba_iteracji.set(self.liczba_iteracji)
         self.etykieta_liczba_aspiracji.set(self.liczba_uzyc_kryt_aspiracji)
         self.etykieta_czas_wykonania.set(self.czas_wykonania)
         self.etykieta_najlepszy_wynik.set(self.iteracja_najlepszy_wynik)
-
-        print(self.wartosci_funkcji)
+        self.rysuj_wykres()
+        print(self.wartosci_funkcji[1])
 
 
 if __name__ == "__main__":
