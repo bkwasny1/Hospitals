@@ -38,7 +38,11 @@ extern int kryterium_aspiracji;
 extern int dlugosc_listy_tabu;
 extern int dobor_sasiedztwa;
 
+extern int act_liczba_iteracji;
+extern int liczba_uzyc_kryterium_aspiracji;
+extern int iteracja_z_najlepszym_wynikiem;
 extern double najlepszy_wynik;
+extern int wartosci_funkcji[10000];
 
 //lista wszsystkich szpitali, trzeba ja kiedys stworzyc
 extern std::vector<Hospital*> hospital_list;

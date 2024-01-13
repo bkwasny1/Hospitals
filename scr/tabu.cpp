@@ -556,7 +556,8 @@ std::vector<Ambulance*> TabuSearch(){
     int max_iteration = 0;
 
     for (int i = 0; i < max_liczba_iteracji; i++){
-        max_iteration++;
+        act_liczba_iteracji++;
+
         int aspiration_on1 = 0;
         int aspiration_on2 = 0;
         int aspiration_on3 = 0;
@@ -648,10 +649,16 @@ std::vector<Ambulance*> TabuSearch(){
         // 6. jezeli jest to najlepsze rozwiazanie, zapisz je do wyniku algorytmu
         if(najlepszy_wynik > najlniejsza_wartosc_funkcji){
             copy_ambulance_vector(global_solution, ambulance_list);
+            //na potrzeby GUI
             najlepszy_wynik = najlniejsza_wartosc_funkcji;
+            iteracja_z_najlepszym_wynikiem = act_liczba_iteracji;
         }
 
-        // 7. sprawdz czy przez ostatnie x iteracji byla poprawa (czy algorytm utknal?)
+        // 7. zapisz dane na potrzeby GUI
+        wartosci_funkcji[act_liczba_iteracji-1] = (int)najlniejsza_wartosc_funkcji;
+
+
+        // 8. sprawdz czy przez ostatnie x iteracji byla poprawa (czy algorytm utknal?)
         if(najlepszy_wynik == najlniejsza_wartosc_funkcji){
             max_iteration++;
         }

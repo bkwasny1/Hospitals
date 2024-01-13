@@ -21,7 +21,8 @@ class GUI(tk.Tk):
                            "czas_obliczen": None,
                            "iteracja_znalazla_wynik": None,
                            "optymalne_rozwiazanie": None,
-                           "kolejne_wartosci_funkcji": None}
+                           "kolejne_wartosci_funkcji": None,
+                           "najlepszy_wynik": None}
 
         self.sciezka_do_exe = r'../cmake-build-debug/Hospitals.exe'
         self.sciezka_do_wynikow = r'wyniki.json'
@@ -31,7 +32,9 @@ class GUI(tk.Tk):
         self.liczba_uzyc_kryt_aspiracji = None
         self.czas_wykonania = None
         self.iteracja_najlepszy_wynik = None
+        self.najlepszy_wynik = None
         self.optymalne_rozwiazanie = None
+
 
         #frontend
         super().__init__()
@@ -166,7 +169,7 @@ class GUI(tk.Tk):
         self.ramka_czas_wykonania = tk.Frame(self.karta1, bd=1, relief=tk.GROOVE)
         self.ramka_czas_wykonania.grid(row=2, column=151, padx=10, pady=10)
         #napis
-        self.napis_czas_wykonania = tk.Label(self.ramka_czas_wykonania, text="czas wykonania")
+        self.napis_czas_wykonania = tk.Label(self.ramka_czas_wykonania, text="czas wykonania [s]")
         self.napis_czas_wykonania.grid(padx=10)
         #wartosc
         self.etykieta_czas_wykonania = tk.IntVar()
@@ -175,19 +178,30 @@ class GUI(tk.Tk):
         self.wartosc_etykiety_czasu.grid(row=0, column=2, padx=10)
 
         # iteracja z najlepszym wynikiem
-        self.ramka_najlepszy_wynik = tk.Frame(self.karta1, bd=1, relief=tk.GROOVE)
-        self.ramka_najlepszy_wynik.grid(row=3, column=151, padx=10, pady=10)
+        self.ramka_najlepszy_wynik_iteracja = tk.Frame(self.karta1, bd=1, relief=tk.GROOVE)
+        self.ramka_najlepszy_wynik_iteracja.grid(row=3, column=151, padx=10, pady=10)
         #napis
-        self.napis_najlepszy_wynik = tk.Label(self.ramka_najlepszy_wynik, text="iteracja z najlepszym wynikiem")
+        self.napis_najlepszy_wynik_iteracja = tk.Label(self.ramka_najlepszy_wynik_iteracja, text="iteracja z najlepszym wynikiem")
+        self.napis_najlepszy_wynik_iteracja.grid(padx=10)
+        #wartosc
+        self.etykieta_najlepszy_wynik_iteracja = tk.IntVar()
+        self.etykieta_najlepszy_wynik_iteracja.set(self.iteracja_najlepszy_wynik)
+        self.wartosc_najlepszy_wynik_iteracja = tk.Label(self.ramka_najlepszy_wynik_iteracja, textvariable=self.etykieta_najlepszy_wynik_iteracja)
+        self.wartosc_najlepszy_wynik_iteracja.grid(row=0, column=2, padx=10)
+
+        # najlepszy_wynik
+        self.ramka_najlepszy_wynik = tk.Frame(self.karta1, bd=1, relief=tk.GROOVE)
+        self.ramka_najlepszy_wynik.grid(row=4, column=151, padx=10, pady=10)
+        #napis
+        self.napis_najlepszy_wynik = tk.Label(self.ramka_najlepszy_wynik, text="najlepszy wynik")
         self.napis_najlepszy_wynik.grid(padx=10)
         #wartosc
         self.etykieta_najlepszy_wynik = tk.IntVar()
-        self.etykieta_najlepszy_wynik.set(self.iteracja_najlepszy_wynik)
+        self.etykieta_najlepszy_wynik.set(self.najlepszy_wynik)
         self.wartosc_najlepszy_wynik = tk.Label(self.ramka_najlepszy_wynik, textvariable=self.etykieta_najlepszy_wynik)
         self.wartosc_najlepszy_wynik.grid(row=0, column=2, padx=10)
 
-        # optymalne_rozwiazanie
-        # wykres przebiegu
+
 
 
     def run_exe(self):
@@ -214,6 +228,7 @@ class GUI(tk.Tk):
             self.liczba_uzyc_kryt_aspiracji = dane["liczba_uzyc_kryt_aspiracji"]
             self.czas_wykonania = dane["czas_wykonania"]
             self.iteracja_najlepszy_wynik = dane["iteracja_najlepszy_wynik"]
+            self.najlepszy_wynik = dane["najlepszy_wynik"]
             # self.optymalne_rozwiazanie = dane["optymalne_rozwiazanie"]
 
 
@@ -224,8 +239,8 @@ class GUI(tk.Tk):
 
     def rysuj_wykres(self):
         # Dane do wykresu (przykładowe dane)
-        dane_y = self.wartosci_funkcji
-        dane_x = [i for i in range(len(dane_y))]
+        dane_y = self.wartosci_funkcji[0:self.liczba_iteracji]
+        dane_x = [i for i in range(self.liczba_iteracji)]
 
         # Tworzenie figury Matplotlib
         fig = Figure(figsize=(10, 8), dpi=100)
@@ -248,7 +263,8 @@ class GUI(tk.Tk):
         self.etykieta_liczba_iteracji.set(self.liczba_iteracji)
         self.etykieta_liczba_aspiracji.set(self.liczba_uzyc_kryt_aspiracji)
         self.etykieta_czas_wykonania.set(self.czas_wykonania)
-        self.etykieta_najlepszy_wynik.set(self.iteracja_najlepszy_wynik)
+        self.etykieta_najlepszy_wynik_iteracja.set(self.iteracja_najlepszy_wynik)
+        self.etykieta_najlepszy_wynik.set(self.najlepszy_wynik)
         self.rysuj_wykres()
         print(self.wartosci_funkcji[1])
 

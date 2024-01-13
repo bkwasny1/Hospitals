@@ -38,13 +38,15 @@ int zapisz_dane(){
     // Tworzenie obiektu JSON
     nlohmann::json dane_do_zapisu;
 
+
     // Dodawanie danych do obiektu JSON
     dane_do_zapisu["liczba_iteracji"] = act_liczba_iteracji;
     dane_do_zapisu["liczba_uzyc_kryt_aspiracji"] = liczba_uzyc_kryterium_aspiracji;
     dane_do_zapisu["czas_wykonania"] = czas_wykonania;
     dane_do_zapisu["iteracja_najlepszy_wynik"] =  iteracja_z_najlepszym_wynikiem;
+    dane_do_zapisu["najlepszy_wynik"] =  (int)najlepszy_wynik;
+    //    dane_do_zapisu["optymalne_rozwiazanie"] =  [["karetka1", [1, 2]], ["karetka2", [1]]];
     dane_do_zapisu["wartosci_funkcji"] = wartosci_funkcji;
-//    dane_do_zapisu["optymalne_rozwiazanie"] =  [["karetka1", [1, 2]], ["karetka2", [1]]];
 
     // Tworzenie strumienia do zapisu do pliku
     std::ofstream plik(results_file_path);

@@ -23,7 +23,8 @@ extern int act_liczba_iteracji;
 extern int liczba_uzyc_kryterium_aspiracji;
 extern int czas_wykonania;
 extern int iteracja_z_najlepszym_wynikiem;
-extern int wartosci_funkcji[16];
+extern int wartosci_funkcji[10000];
+extern double najlepszy_wynik;
 
 int wczytaj_dane();
 
