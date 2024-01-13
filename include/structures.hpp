@@ -87,6 +87,12 @@ public:
         amb_id++;
     }
 
+    Ambulance(const Ambulance& other) : id(other.id), actual_hospital_(other.actual_hospital_), patient_count(other.patient_count){
+        for(Patient* patient : other.order_){
+            order_.push_back(patient);
+        }
+    }
+
     //dodanie operatorow porownania
     bool operator==(const Ambulance& other)const{
         return id == other.id;
