@@ -1,7 +1,6 @@
 #include "tabu.hpp"
 #include <queue>
 #include <iostream>
-#include <variant>
 
 #define NOT_IN_TABU 0
 #define IN_TABU 1
@@ -243,7 +242,8 @@ double ObjectiveFunction(std::vector<Ambulance*> const &solution){
 }
 
 //trzeba uzyc kilku sasiedztw naraz
-void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choose_neigh){
+std::map<Ambulance*, int> NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choose_neigh){
+    std::map<Ambulance*, int> neigh_to_swap;
     switch(choose_neigh) {
         case FIRST_NEIGH: {
             srand(time(nullptr));
@@ -271,6 +271,9 @@ void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choos
                     swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], swap_amp1_idx, swap_amp2_idx);
                     if (cost - ObjectiveFunction(solutions) >  ASPIRATION){
                         apiration_usage_counter++;
+                        swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], swap_amp1_idx, swap_amp2_idx);
+                        neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx1],swap_amp1_idx));
+                        neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx2],swap_amp2_idx));
                         break;
                     }
                     else{
@@ -289,7 +292,8 @@ void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choos
                 }
             }
 
-            swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], swap_amp1_idx, swap_amp2_idx);
+            neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx1],swap_amp1_idx));
+            neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx2],swap_amp2_idx));
             break;
         }
 
@@ -328,6 +332,9 @@ void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choos
                     swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
                     if (Tabu.check_if_in_tabu(pair1, pair2) && (cost - ObjectiveFunction(solutions)) > ASPIRATION){
                         apiration_usage_counter++;
+                        swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
+                        neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx1],pat_idx1));
+                        neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx2],pat_idx2));
                         break;
                     }
                     else{
@@ -339,7 +346,8 @@ void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choos
                 }
             }
 
-            Tabu.update_tabu(pair1, pair2);
+            neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx1],pat_idx1));
+            neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx2],pat_idx2));
             break;
         }
 
@@ -374,16 +382,21 @@ void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choos
                     swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
                     if (Tabu.check_if_in_tabu(pair1, pair2) && (cost - ObjectiveFunction(solutions)) > ASPIRATION){
                         apiration_usage_counter++;
+                        swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
+                        neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx1],pat_idx1));
+                        neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx2],pat_idx2));
                         break;
                     }
                     else{
                         swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
                     }}
                 if(!Tabu.check_if_in_tabu(pair1, pair2)){
-                    swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
+
                     break;
                 }
             }
+            neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx1],pat_idx1));
+            neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx2],pat_idx2));
             break;
         }
         case FOURTH_NEIGH:{
@@ -422,16 +435,21 @@ void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choos
                         swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
                         if (Tabu.check_if_in_tabu(pair1, pair2) && (cost - ObjectiveFunction(solutions)) > ASPIRATION){
                             apiration_usage_counter++;
+                            swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
+                            neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx1],pat_idx1));
+                            neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx2],pat_idx2));
                             break;
                         }
                         else{
                             swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
                         }}
                     if(!Tabu.check_if_in_tabu(pair1, pair2)){
-                        swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
+
                         break;
                     }
                 }
+                neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx1],pat_idx1));
+                neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx2],pat_idx2));
             }
             else{
                 srand(time(nullptr));
@@ -463,22 +481,28 @@ void NeighbourSelect(TabuList Tabu, std::vector<Ambulance*> solutions, int choos
                         swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
                         if (Tabu.check_if_in_tabu(pair1, pair2) && (cost - ObjectiveFunction(solutions)) > ASPIRATION){
                             apiration_usage_counter++;
+                            swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
+                            neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx1],pat_idx1));
+                            neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx2],pat_idx2));
                             break;
                         }
                         else{
                             swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
                         }}
                     if(!Tabu.check_if_in_tabu(pair1, pair2)){
-                        swap(*solutions[ambulance_idx1], *solutions[ambulance_idx2], pat_idx1, pat_idx2);
                         break;
                     }
                 }
+                neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx1],pat_idx1));
+                neigh_to_swap.insert(std::make_pair(solutions[ambulance_idx2],pat_idx2));
             }
             break;
         }
         default:
             break;
     }
+
+    return neigh_to_swap;
 }
 
 void create_first_solution(){
@@ -495,6 +519,20 @@ void create_first_solution(){
         if (counter == ambulance_list.size()){
             counter = 0;
         }
+    }
+}
+
+void copy_ambulance_vector(std::vector<Ambulance*> orginal, std::vector<Ambulance*>& copy){
+    // wyczysc wektor do ktorego kopiujemy
+    for (auto & del : copy){
+        delete del;
+    }
+    copy.clear();
+
+    // skoopiuj wartosci
+    for (Ambulance *ambulance: orginal) {
+        Ambulance *clonedAmbulance = new Ambulance(*ambulance);
+        copy.push_back(clonedAmbulance);
     }
 }
 
@@ -564,7 +602,7 @@ std::vector<Ambulance*> TabuSearch(){
             copy_ambulance_vector(solution4, global_solution);
         }
 
-        std::cout << najlepszy_wynik << std::endl;
+
         // 6. jezeli jest to najlepsze rozwiazanie, zapisz je do wyniku algorytmu
         if(najlepszy_wynik > najlniejsza_wartosc_funkcji){
             copy_ambulance_vector(global_solution, ambulance_list);
@@ -572,7 +610,7 @@ std::vector<Ambulance*> TabuSearch(){
         }
 
         // 7. sprawdz czy przez ostatnie x iteracji byla poprawa (czy algorytm utknal?)
-        std::cout << najlepszy_wynik << std::endl;
+
     }
 
     return global_solution;

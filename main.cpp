@@ -4,6 +4,7 @@
 #include <cfloat>
 
 //dane wejsciowe z GUI
+
 int max_liczba_iteracji = 10000;
 int kryterium_aspiracji;
 int dlugosc_listy_tabu;
