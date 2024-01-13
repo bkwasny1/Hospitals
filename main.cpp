@@ -86,16 +86,7 @@ int main(){
     std::map<Ambulance*, int> neigh_to_swap;
     neigh_to_swap.insert(std::make_pair(&ambulance_1,1));
     neigh_to_swap.insert(std::make_pair(&ambulance_2,2));
-
-    std::map<Ambulance*, int>::iterator it = neigh_to_swap.begin();
-
-    std::vector<int> pat_idx;
-    std::vector<Ambulance*> amb_swap;
-
-    for(auto & it : neigh_to_swap){
-        amb_swap.push_back(it.first);
-        pat_idx.push_back(it.second);
-    }
-    //TabuSearch();
+    
+    TabuSearch();
     return 0;
 }
