@@ -10,7 +10,7 @@
 int max_liczba_iteracji;
 int kryterium_aspiracji;
 int dlugosc_listy_tabu;
-int dobor_sasiedztwa;
+std::vector<int> dobor_sasiedztwa;
 
 //dane wyjsciowe do GUI
 int act_liczba_iteracji = 0;

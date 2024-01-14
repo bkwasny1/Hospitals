@@ -34,7 +34,10 @@ class GUI(tk.Tk):
         self.iteracja_najlepszy_wynik = None
         self.najlepszy_wynik = None
         self.optymalne_rozwiazanie = None
-
+        self.przycisk_sasiedztwo1 = None
+        self.przycisk_sasiedztwo2 = None
+        self.przycisk_sasiedztwo3 = None
+        self.przycisk_sasiedztwo4 = None
 
         #frontend
         super().__init__()
@@ -87,14 +90,28 @@ class GUI(tk.Tk):
         self.entry_kryterium_aspiracji = tk.Entry(self.karta1)
         self.entry_kryterium_aspiracji.grid(row=2, column=0, padx=10, pady=10)
 
-        # wybierz dobor sasiedztwa
-        self.label_dobor_sasiedztwa = tk.Label(self.karta1, text="wybierz dobor sasiedztwa")
-        self.label_dobor_sasiedztwa.grid(row=4, column=1)  # Przesunięcie napisu
-        self.combobox_dobor_sasiedztwa = ttk.Combobox(self.karta1, values=["sasiedztwo1", "sasiedztwo2", "sasiedztwo3"])
-        self.combobox_dobor_sasiedztwa.set("sasiedztwo1")  # Domyślna wartość
-        self.combobox_dobor_sasiedztwa.grid(row=4, column=0, padx=10, pady=10)
+        # wybor sasiedztwa
+        self.przycisk_sasiedztwo1 = tk.BooleanVar()
+        self.przycisk_sasiedztwo1.set(False)
+        self.przycisk_sasiedztwo1_okno = tk.Checkbutton(self.karta1, text="Sasiedztwo 1", variable=self.przycisk_sasiedztwo1)
+        self.przycisk_sasiedztwo1_okno.grid(row=4, column=0, pady=10)
 
+        self.przycisk_sasiedztwo2 = tk.BooleanVar()
+        self.przycisk_sasiedztwo2.set(False)
+        self.przycisk_sasiedztwo2_okno = tk.Checkbutton(self.karta1, text="Sasiedztwo 2", variable=self.przycisk_sasiedztwo2)
+        self.przycisk_sasiedztwo2_okno.grid(row=5, column=0, pady=10)
 
+        self.przycisk_sasiedztwo3 = tk.BooleanVar()
+        self.przycisk_sasiedztwo3.set(False)
+        self.przycisk_sasiedztwo3_okno = tk.Checkbutton(self.karta1, text="Sasiedztwo 3", variable=self.przycisk_sasiedztwo3)
+        self.przycisk_sasiedztwo3_okno.grid(row=6, column=0, pady=10)
+
+        self.przycisk_sasiedztwo4 = tk.BooleanVar()
+        self.przycisk_sasiedztwo4.set(False)
+        self.przycisk_sasiedztwo4_okno = tk.Checkbutton(self.karta1, text="Sasiedztwo 4", variable=self.przycisk_sasiedztwo4)
+        self.przycisk_sasiedztwo4_okno.grid(row=7, column=0,  pady=10)
+
+        # przycisk zapisu danych
         self.przycisk_karta1 = tk.Button(self.karta1, text="Zapisz", command=self.uruchom_algorytm)
         self.przycisk_karta1.grid(row=50, column=0, padx=10, pady=10)
 
@@ -105,6 +122,7 @@ class GUI(tk.Tk):
             self.data_to_save["max_liczba_iteracji"] = int(self.entry_max_liczba_iteracji.get())
             self.data_to_save["kryterium_aspiracji"] = int(self.entry_kryterium_aspiracji.get())
             self.data_to_save["dlugosc_listy_tabu"] = int(self.entry_dlugosc_listy_tabu.get())
+            print(self.wybierz_sasiedztwo())
             self.data_to_save["dobor_sasiedztwa"] = self.wybierz_sasiedztwo()
             self.save_data()
         except ValueError:
@@ -125,13 +143,19 @@ class GUI(tk.Tk):
 
 
     def wybierz_sasiedztwo(self):
-        sasiedztwo = self.combobox_dobor_sasiedztwa.get()
-        if sasiedztwo == "sasiedztwo1":
-            return 1
-        elif sasiedztwo == "sasiedztwo2":
-            return 2
-        elif sasiedztwo == "sasiedztwo3":
-            return 3
+
+        wektor_sasiedztwa = [0, 0, 0, 0]
+
+        if self.przycisk_sasiedztwo1.get():
+            wektor_sasiedztwa[0] = 1
+        if self.przycisk_sasiedztwo2.get():
+            wektor_sasiedztwa[1] = 1
+        if self.przycisk_sasiedztwo3.get():
+            wektor_sasiedztwa[2] = 1
+        if self.przycisk_sasiedztwo4.get():
+            wektor_sasiedztwa[3] = 1
+
+        return wektor_sasiedztwa
 
 
     def save_data(self):

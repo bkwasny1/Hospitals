@@ -33,3 +33,7 @@ cmake-build-debug/
 GUI/venv
 GUI/.idea
 .Rhistory
+
+GUI/wyniki.json
+
+GUI/dane.json

@@ -16,7 +16,7 @@ const std::string results_file_path = "../GUI/wyniki.json";
 extern int max_liczba_iteracji;
 extern int kryterium_aspiracji;
 extern int dlugosc_listy_tabu;
-extern int dobor_sasiedztwa;
+extern std::vector<int> dobor_sasiedztwa;
 
 //dane wyjsciowe do GUI
 extern int act_liczba_iteracji;

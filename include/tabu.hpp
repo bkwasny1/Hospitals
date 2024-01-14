@@ -5,6 +5,7 @@
 #include <map>
 #include <utility>
 #include <vector>
+#include <cfloat>
 
 //wektor, ktory ma swoja dlugosc, po przekroczeniu dlugosci zaczyna nadpisywac
 //elementy zaczynajac od poczatku, wektor ma dlugosc dwa razy wieksza niz podana
@@ -36,7 +37,7 @@ void test_zmiennych_z_gui();
 extern int max_liczba_iteracji;
 extern int kryterium_aspiracji;
 extern int dlugosc_listy_tabu;
-extern int dobor_sasiedztwa;
+extern std::vector<int> dobor_sasiedztwa;
 
 extern int act_liczba_iteracji;
 extern int liczba_uzyc_kryterium_aspiracji;

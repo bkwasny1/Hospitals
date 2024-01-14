@@ -20,7 +20,11 @@ int wczytaj_dane(){
         max_liczba_iteracji = dane["max_liczba_iteracji"];
         kryterium_aspiracji = dane["kryterium_aspiracji"];
         dlugosc_listy_tabu = dane["dlugosc_listy_tabu"];
-        dobor_sasiedztwa = dane["dobor_sasiedztwa"];
+        nlohmann::json tablica_sasiedztwa = dane["dobor_sasiedztwa"];
+        dobor_sasiedztwa.push_back(tablica_sasiedztwa[0]);
+        dobor_sasiedztwa.push_back(tablica_sasiedztwa[1]);
+        dobor_sasiedztwa.push_back(tablica_sasiedztwa[2]);
+        dobor_sasiedztwa.push_back(tablica_sasiedztwa[3]);
     }
     catch (const std::exception& e) {
         std::cout << "nie poprawnie zapisane dane wejsciowe, algorytm nie byl w stanie ich odczytac" << std::endl;

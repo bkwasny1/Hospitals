@@ -619,6 +619,21 @@ std::vector<Ambulance*> TabuSearch(){
         double cost_temp_solution3 = ObjectiveFunction(solution3);
         double cost_temp_solution4 = ObjectiveFunction(solution4);
 
+        // 4. wyeliminuj rozwiazania sasiedztw nie branych pod uwage
+        //    (moglo by to byc bardziej optymalne, ale jest to tymczasowe rozwiazanie oszczedzajace czas)
+        if(!dobor_sasiedztwa[0]){
+            cost_temp_solution1 = DBL_MAX;
+        }
+        if(!dobor_sasiedztwa[1]){
+            cost_temp_solution2 = DBL_MAX;
+        }
+        if(!dobor_sasiedztwa[2]){
+            cost_temp_solution3 = DBL_MAX;
+        }
+        if(!dobor_sasiedztwa[3]){
+            cost_temp_solution4 = DBL_MAX;
+        }
+        
         // 5. wybierz najlepsze rozwiazanie w danej iteracji
         double najlniejsza_wartosc_funkcji = cost_temp_solution1;
         copy_ambulance_vector(solution1, global_solution);
@@ -669,12 +684,4 @@ std::vector<Ambulance*> TabuSearch(){
     }
 
     return global_solution;
-}
-
-
-void test_zmiennych_z_gui(){
-    std::cout << max_liczba_iteracji << std::endl;
-    std::cout << kryterium_aspiracji << std::endl;
-    std::cout << dlugosc_listy_tabu << std::endl;
-    std::cout << dobor_sasiedztwa << std::endl;
 }
