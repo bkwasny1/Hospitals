@@ -50,20 +50,46 @@ int main(){
     Hospital hos_1(0,  0 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
     Hospital hos_2(1,  1 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
     Hospital hos_3(2,  2 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Hospital hos_4(0,  0 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Hospital hos_5(1,  1 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Hospital hos_6(2,  2 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
 
     hospital_list.push_back(&hos_1);
     hospital_list.push_back(&hos_2);
     hospital_list.push_back(&hos_3);
+    hospital_list.push_back(&hos_4);
+    hospital_list.push_back(&hos_5);
+    hospital_list.push_back(&hos_6);
 
     Ambulance ambulance_1(&hos_1);
     Ambulance ambulance_2(&hos_2);
     Ambulance ambulance_3(&hos_3);
+    Ambulance ambulance_4(&hos_1);
+    Ambulance ambulance_5(&hos_2);
+    Ambulance ambulance_6(&hos_3);
+    Ambulance ambulance_7(&hos_1);
+    Ambulance ambulance_8(&hos_2);
 
     Patient pat_1(0,6,3,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
     Patient pat_2(1,1,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
     Patient pat_3(0,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
     Patient pat_4(0,3,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
     Patient pat_5(1,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_6(0,6,3,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_7(1,1,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_8(0,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_9(0,3,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_10(1,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_11(0,6,3,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_12(1,1,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_13(0,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_14(0,3,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_15(1,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_16(0,6,3,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_17(1,1,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_18(0,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_19(0,3,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_20(1,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
 
     patients_list.push_back(&pat_1);
     patients_list.push_back(&pat_2);
