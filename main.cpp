@@ -7,9 +7,9 @@
 //pamietac o zmianie AMBULANCE_NUMBER
 
 //dane wejsciowe z GUI
-int max_liczba_iteracji = 1000;
-int kryterium_aspiracji = 0;
-int dlugosc_listy_tabu = 20;
+int max_liczba_iteracji;
+int kryterium_aspiracji;
+int dlugosc_listy_tabu;
 std::vector<int> dobor_sasiedztwa = {1, 1, 1, 1};
 
 //dane wyjsciowe do GUI
@@ -48,12 +48,12 @@ int main(){
             "Oparzenia",
             "Gastroenterologia"};
 
-    Hospital hos_1(0,  0 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Hospital hos_2(24, 49 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Hospital hos_3(9,  7 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Hospital hos_4(9, 28 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Hospital hos_5(12, 40 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Hospital hos_6(0, 49 , specializations, std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Hospital hos_1(0,  0 , specializations, std::vector<int>{8,5,5,9,7,5,5,7,5,8,8,9,9});
+    Hospital hos_2(24, 49 , specializations, std::vector<int>{6,2,6,6,8,5,8,5,6,6,3,5,9});
+    Hospital hos_3(9,  7 , specializations, std::vector<int>{9,9,9,9,9,9,9,9,9,9,9,9,9});
+    Hospital hos_4(9, 28 , specializations, std::vector<int>{6,1,9,2,6,5,6,1,4,7,5,8,7});
+    Hospital hos_5(12, 40 , specializations, std::vector<int>{8,8,6,2,6,7,6,4,9,5,5,6,4});
+    Hospital hos_6(0, 49 , specializations, std::vector<int>{6,7,8,9,8,8,7,5,9,9,9,6,7});
 
     hospital_list.push_back(&hos_1);
     hospital_list.push_back(&hos_2);
@@ -79,26 +79,26 @@ int main(){
     ambulance_list.push_back(new_ambulance7);
     ambulance_list.push_back(new_ambulance8);
 
-    Patient pat_1(0,6,3,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_2(1,1,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_3(0,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_4(0,3,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_5(1,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_6(0,6,3,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_7(1,1,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_8(0,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_9(0,3,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_10(1,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_11(0,6,3,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_12(1,1,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_13(0,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_14(0,3,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_15(1,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_16(0,6,3,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_17(1,1,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_18(0,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_19(0,3,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
-    Patient pat_20(1,4,1,1, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_1(0,6,10,2, specializations,std::vector<int>{6,0,0,0,0,0,4,0,0,0,0,0,0});
+    Patient pat_2(1,1,30,2, specializations,std::vector<int>{0,0,4,0,0,0,0,0,0,0,0,1,0});
+    Patient pat_3(0,4,20,5, specializations,std::vector<int>{0,0,0,5,0,0,0,0,0,0,9,0,0});
+    Patient pat_4(0,3,10,3, specializations,std::vector<int>{0,5,0,0,0,0,0,0,0,0,0,0,0});
+    Patient pat_5(1,4,5,2, specializations,std::vector<int>{0,0,0,0,6,0,9,0,0,0,0,0,0});
+    Patient pat_6(0,6,30,6, specializations,std::vector<int>{0,0,0,0,0,0,6,0,0,3,0,0,0});
+    Patient pat_7(1,1,30,4, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,6,0,0});
+    Patient pat_8(0,4,20,2, specializations,std::vector<int>{0,0,0,0,8,8,0,0,0,0,0,0,0});
+    Patient pat_9(0,3,25,4, specializations,std::vector<int>{0,4,0,0,0,0,0,4,0,0,0,0,0});
+    Patient pat_10(1,4,5,1, specializations,std::vector<int>{6,0,0,0,0,0,0,0,6,0,0,0,0});
+    Patient pat_11(0,6,17,5, specializations,std::vector<int>{0,0,4,4,0,0,0,0,0,0,0,0,0});
+    Patient pat_12(1,1,23,4, specializations,std::vector<int>{7,0,0,0,0,0,0,0,0,7,0,0,0});
+    Patient pat_13(0,4,6,1, specializations,std::vector<int>{0,0,0,5,0,0,0,2,0,0,0,0,0});
+    Patient pat_14(0,3,51,8, specializations,std::vector<int>{0,0,9,0,0,0,9,0,0,0,0,0,0});
+    Patient pat_15(1,4,50,8, specializations,std::vector<int>{0,9,0,0,0,9,0,0,0,0,0,0,0});
+    Patient pat_16(0,6,21,4, specializations,std::vector<int>{0,0,6,0,6,0,0,0,0,6,0,0,0});
+    Patient pat_17(1,1,41,3, specializations,std::vector<int>{0,0,0,0,4,4,0,0,0,0,0,0,0});
+    Patient pat_18(0,4,21,7, specializations,std::vector<int>{0,0,5,0,0,4,0,0,8,0,0,0,0});
+    Patient pat_19(0,3,16,4, specializations,std::vector<int>{0,0,2,0,0,0,2,0,0,0,0,0,0});
+    Patient pat_20(1,4,19,6, specializations,std::vector<int>{0,0,0,0,0,0,0,0,0,0,0,0,9});
 
 
     patients_list.push_back(&pat_1);

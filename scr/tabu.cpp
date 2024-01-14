@@ -217,7 +217,7 @@ double ObjectiveFunction(std::vector<Ambulance*> const &solution){
     double cost;
     for (auto ambulance : solution){
         Hospital* primaty_hospital = ambulance -> get_actual_hospital();
-
+        int sum_time = 0;
         for (auto patient : ambulance->get_order()){
             if (patient == nullptr){
                 break;
@@ -231,8 +231,9 @@ double ObjectiveFunction(std::vector<Ambulance*> const &solution){
             Point hos_loc = {best_hospital->get_hosp_location_x(), best_hospital->get_hosp_location_y(), 0};
             int pat_to_hosp_time = BFS(city, pat_loc, hos_loc);
             int patient_priority = patient->get_priority();
-            cost = cost + patient_priority * (p_time + amb_to_pat_time + pat_to_hosp_time);
+            cost = cost + patient_priority * (p_time + amb_to_pat_time) + pat_to_hosp_time + sum_time;
             ambulance->change_hospital(best_hospital);
+            sum_time = p_time + amb_to_pat_time + pat_to_hosp_time;
         }
         ambulance->change_hospital(primaty_hospital);
     }
