@@ -510,12 +510,6 @@ std::map<Ambulance*, int> NeighbourSelect(TabuList Tabu, std::vector<Ambulance*>
 }
 
 void create_first_solution(){
-    // stworz poczatkowa liste szpitali
-    for(auto *hospital: hospital_list){
-        Ambulance *ambulance = new Ambulance(hospital);
-        ambulance_list.push_back(ambulance);
-    }
-
     int counter = 0;
     for (auto patient : patients_list){
         ambulance_list[counter]->add_patient(patient);
@@ -523,8 +517,7 @@ void create_first_solution(){
         if (counter == ambulance_list.size()){
             counter = 0;
         }
-    }
-}
+}}
 
 void copy_ambulance_vector(std::vector<Ambulance*> orginal, std::vector<Ambulance*>& copy){
     // wyczysc wektor do ktorego kopiujemy

@@ -16,7 +16,8 @@ include_directories(./json/include)
 # Dodaj pliki źródłowe i nagłówkowe do projektu
 add_executable(Hospitals main.cpp include/tabu.hpp scr/tabu.cpp include/structures.hpp
         scr/structures.cpp include/window.hpp scr/window.cpp
-        )
+        main.cpp
+)
 
 # Dodaj ścieżki do folderów include
 target_include_directories(Hospitals PRIVATE include)
