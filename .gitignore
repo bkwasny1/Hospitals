@@ -38,3 +38,6 @@ GUI/wyniki.json
 
 GUI/dane.json
 .idea/workspace.xml
+*.xml
+*.obj
+*.log
