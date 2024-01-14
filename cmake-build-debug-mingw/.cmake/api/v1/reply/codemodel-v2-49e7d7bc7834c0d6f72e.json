@@ -6,10 +6,14 @@
 			[
 				{
 					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
 					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.21"
+						"string" : "3.1"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
@@ -17,12 +21,27 @@
 					[
 						0
 					]
+				},
+				{
+					"build" : "json",
+					"jsonFile" : "directory-json-Debug-7c8e029cc17b7fb8a4ec.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "json"
 				}
 			],
 			"name" : "Debug",
 			"projects" : 
 			[
 				{
+					"childIndexes" : 
+					[
+						1
+					],
 					"directoryIndexes" : 
 					[
 						0
@@ -32,6 +51,14 @@
 					[
 						0
 					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "nlohmann_json",
+					"parentIndex" : 0
 				}
 			],
 			"targets" : 
@@ -39,7 +66,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Hospitals::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Hospitals-Debug-eeb4ffa9565a4cc1dd5d.json",
+					"jsonFile" : "target-Hospitals-Debug-59859754fa18ca11d86a.json",
 					"name" : "Hospitals",
 					"projectIndex" : 0
 				}
@@ -55,6 +82,6 @@
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 3
+		"minor" : 6
 	}
 }
