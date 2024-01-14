@@ -24,7 +24,7 @@ class GUI(tk.Tk):
                            "kolejne_wartosci_funkcji": None,
                            "najlepszy_wynik": None}
 
-        self.sciezka_do_exe = r'../cmake-build-debug/Hospitals.exe'
+        self.sciezka_do_exe = r'../cmake-build-debug-mingw/Hospitals.exe'
         self.sciezka_do_wynikow = r'wyniki.json'
 
         self.wartosci_funkcji =[]
@@ -269,7 +269,7 @@ class GUI(tk.Tk):
         # Tworzenie figury Matplotlib
         fig = Figure(figsize=(10, 8), dpi=100)
         wykres = fig.add_subplot(1, 1, 1)
-        wykres.plot(dane_x, dane_y, label='Wartosci funkcji celu')
+        wykres.plot(dane_x, dane_y, label='Wartosci funkcji celu',  linewidth=0.5)
 
         wykres.set_title('Wartosci funkcji celu')
         wykres.set_xlabel('kolejne rozwiazania')

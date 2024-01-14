@@ -259,8 +259,18 @@ std::map<Ambulance*, int> NeighbourSelect(TabuList Tabu, std::vector<Ambulance*>
             std::vector<Patient*> order1 = solutions[ambulance_idx1]->get_order();
             std::vector<Patient*> order2 = solutions[ambulance_idx2]->get_order();
 
-            int pat1_id = order1[swap_amp1_idx] -> get_patient_id();
-            int pat2_id = order2[swap_amp2_idx] -> get_patient_id();
+            int pat1_id;
+            int pat2_id;
+            try{
+                pat1_id = order1[swap_amp1_idx] -> get_patient_id();
+            } catch (const std::exception& e) {
+                pat1_id = 0;
+            }
+            try{
+                pat2_id = order2[swap_amp2_idx] -> get_patient_id();
+            } catch (const std::exception& e) {
+                pat2_id = 0;
+            }
 
             std::map<Ambulance, int> pair1 = {{*solutions[ambulance_idx1], pat1_id}};
             std::map<Ambulance, int> pair2 = {{*solutions[ambulance_idx2], pat2_id}};
